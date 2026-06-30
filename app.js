@@ -266,6 +266,76 @@ function layout(ids){
   return pos;
 }
 
+/* ---- multi-floor zones: split into cardinal-connected components (up/down are stairs,
+   not grid moves), lay each out on its own, and stack the floors vertically ---- */
+function componentsOf(ids){
+  const set = new Set(ids.map(Number));
+  const adj = new Map();
+  const add = (a,b) => { let s = adj.get(a); if (!s){ s = new Set(); adj.set(a,s); } s.add(b); };
+  for (const id of ids.map(Number)){
+    if (!adj.has(id)) adj.set(id, new Set());
+    const ex = (DB.rooms[id]||{}).exits || {};
+    for (const d in DIR){ const nb = Number(ex[d]); if (nb && set.has(nb)){ add(id,nb); add(nb,id); } }
+  }
+  const seen = new Set(), comps = [];
+  for (const start of ids.map(Number)){
+    if (seen.has(start)) continue;
+    const comp = [], st = [start]; seen.add(start);
+    while (st.length){ const id = st.pop(); comp.push(id);
+      for (const nb of (adj.get(id)||[])) if (!seen.has(nb)){ seen.add(nb); st.push(nb); } }
+    comps.push(comp);
+  }
+  comps.sort((a,b) => b.length - a.length);   // largest floor first
+  return comps;
+}
+function layoutComp(comp){
+  const set = new Set(comp.map(Number));
+  const pos = new Map(), taken = new Map();
+  const place = (id,c,r) => { pos.set(id,[c,r]); taken.set(c+","+r,id); };
+  const seed = comp.find(id => /plaza|square|entrance/i.test((DB.rooms[id]||{}).name||"")) ?? Number(comp[0]);
+  place(Number(seed),0,0);
+  const q = [Number(seed)];
+  while (q.length){
+    const id = q.shift(); const [c,r] = pos.get(id);
+    const ex = (DB.rooms[id]||{}).exits || {};
+    for (const d in DIR){
+      const nb = Number(ex[d]); if (!nb || !set.has(nb) || pos.has(nb)) continue;
+      const [dc,dr] = DIR[d], nc=c+dc, nr=r+dr;
+      if (taken.has(nc+","+nr)) continue;
+      place(nb,nc,nr); q.push(nb);
+    }
+  }
+  // conflicted rooms: spiral out from a placed neighbour (stays near its floor, no row-dump)
+  for (const id of comp.map(Number)) if (!pos.has(id)){
+    let ax=0, ay=0;
+    const ex = (DB.rooms[id]||{}).exits || {};
+    for (const d in DIR){ const nb = Number(ex[d]); if (pos.has(nb)){ [ax,ay]=pos.get(nb); break; } }
+    let done=false;
+    for (let rad=1; rad<60 && !done; rad++)
+      for (let dc=-rad; dc<=rad && !done; dc++) for (let dr=-rad; dr<=rad && !done; dr++){
+        if (Math.abs(dc)!==rad && Math.abs(dr)!==rad) continue;
+        if (!taken.has((ax+dc)+","+(ay+dr))){ place(id,ax+dc,ay+dr); done=true; }
+      }
+    if (!done) place(id,0,999);
+  }
+  return pos;
+}
+function stackedLayout(ids){
+  const comps = componentsOf(ids);
+  const pos = new Map(), sepRows = [];
+  let bandOff = 0;
+  for (let ci=0; ci<comps.length; ci++){
+    const lp = layoutComp(comps[ci]);
+    let cMinC=Infinity,cMinR=Infinity,cMaxR=-Infinity;
+    for (const [,[c,r]] of lp){ if(c<cMinC)cMinC=c; if(r<cMinR)cMinR=r; if(r>cMaxR)cMaxR=r; }
+    for (const [id,[c,r]] of lp) pos.set(id,[c-cMinC, r-cMinR+bandOff]);
+    const h = (cMaxR-cMinR)+1;
+    if (ci < comps.length-1) sepRows.push(bandOff + h);   // gap row after this floor
+    bandOff += h + 2;
+  }
+  return { pos, sepRows };
+}
+
 /* ---- ASCII-art map renderer: rooms as [XX] boxes, line corridors, margin labels ---- */
 const CARD8 = ["n","s","e","w","ne","nw","se","sw"];
 // diagonal connector glyph + the two gap-cell offsets [dcol,drow] from the box origin
@@ -301,7 +371,7 @@ function boxClick(id){
 
 function layoutAndRender(ids){
   const map = document.getElementById("map");
-  const pos = layout(ids);
+  const { pos, sepRows } = stackedLayout(ids);   // each floor (cardinal component) stacked vertically
   const codes = monsterCodes(ids);
   renderMonLegend(codes);
   const seedId = ids.find(id => /plaza|square|entrance/i.test((DB.rooms[id]||{}).name||"")) ?? Number(ids[0]);
@@ -356,6 +426,14 @@ function layoutAndRender(ids){
     const elev = (ex.up&&ex.down)?"↕":ex.up?"^":ex.down?"v":"";
     const content = code.length>=2 ? code.slice(0,2) : code + (elev || " ");
     putStr(by(r), bx(c), "["+content+"]", { kind:"room", id, cls:boxCls(id,room,codes,seedId) });
+  }
+
+  // ---- faint divider between stacked floors (connected only by up/down stairs) ----
+  for (const sr of sepRows){
+    const yy = by(sr), c0 = bx(minC), c1 = bx(maxC)+3;
+    for (let cc=c0; cc<=c1; cc+=3) put(yy, cc, "·");
+    const note = " stairs ", nc = ((c0+c1)>>1) - (note.length>>1);
+    putStr(yy, nc, note);
   }
 
   // ---- exits to other zones: a connector + the destination NAME as a margin label ----
