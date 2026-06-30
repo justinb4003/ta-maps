@@ -319,6 +319,21 @@ function layoutAndRender(ids){
     const c = document.querySelector(`.room[data-id="${l.fromId}"]`);
     if (c) c.classList.add("portal-room");
   }
+  padForPanels();
+}
+
+// Pad the scrollable map so any room can be scrolled clear of the pinned corner
+// panels (monster legend = top-right, exits list = bottom-left): each side gets the
+// panel's size + a buffer, so nothing stays permanently hidden under them.
+function padForPanels(){
+  const map = document.getElementById("map");
+  const ml = document.getElementById("mlegend");
+  const pt = document.getElementById("portals");
+  const vis = el => el && el.style.display !== "none";
+  const B = 56, base = 16;                     // panel height + buffer of scroll room
+  const top    = vis(ml) ? ml.offsetHeight + B : base;
+  const bottom = vis(pt) ? pt.offsetHeight + B : base;
+  map.style.padding = `${top}px ${base}px ${bottom}px ${base}px`;
 }
 
 function renderMonLegend(codes){
