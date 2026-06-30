@@ -1,0 +1,33 @@
+{
+  "_comment": "Paid-passage / special-transport links that are NOT simple walkable exits. Keyed by the departure room-id (string). Each entry describes one direction of travel; bidirectional transports appear under both room keys. See docs/passage-transports.md for the full narrative.",
+  "-89": {
+    "to": -88,
+    "kind": "passage",
+    "method": "ship",
+    "cost": "unknown (price not in MSG files; CNTVOY confirms a cost exists)",
+    "command": "BUY PASSAGE",
+    "to_zone": "Town 2",
+    "note": "BUY PASSAGE at Town 1 Docks crosses 'the great lake' by ship. NPC: ship's captain (SNAM13). White Rune required (NORUNE gate). Flavor: YOUVOY 'You buy passage across the great lake and board a ship...'. COMPLETELY ABSENT from ta-rooms.json exits — no directional exit connects -89 to -88 in the walk-exit table.",
+    "source": "CONFIRMED"
+  },
+  "-88": {
+    "to": -89,
+    "kind": "passage",
+    "method": "ship",
+    "cost": "unknown",
+    "command": "BUY PASSAGE",
+    "to_zone": "Town 1",
+    "note": "Return passage from Town 2 Docks back to Town 1 Docks. OTHARR 'has just arrived on a ship from across the great lake' implies bidirectional service. Published-maps.md confirms 'connects back to Town 1 area via boat'. COMPLETELY ABSENT from ta-rooms.json exits.",
+    "source": "INFERRED"
+  },
+  "-81": {
+    "to": 844,
+    "kind": "passage",
+    "method": "sewer-passage",
+    "cost": "100 silvers",
+    "command": "BUY PASSAGE",
+    "to_zone": "Sewers",
+    "note": "BUY PASSAGE ('b passage', 100 silvers) at the Town 2 path room enters Sewers Level 1. White Rune required (SB21: 'White Rune needed'). Return trip (room 844 UP to -81) is free — no BUY PASSAGE required going up. Currently in ta-rooms.json as a plain DOWN exit on room -81; the exit is MISLABELED (it represents paid passage, not a staircase).",
+    "source": "CONFIRMED"
+  }
+}

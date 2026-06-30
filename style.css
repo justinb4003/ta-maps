@@ -103,20 +103,25 @@ main{display:flex; gap:0; flex:1; min-height:0}
 #portals .portal-link:hover{ color:var(--c-white); background:#123 }
 #portals .pfrom{ color:var(--c-dgray) }
 #portals .pcount{ color:var(--amber); font-weight:bold }
-/* transition rooms + inline labelled chips */
-.room.portal-room{ outline:1px dashed var(--c-green) }
 .room.portal-hi{ outline:2px solid var(--c-lgreen) !important; z-index:4 }
-.portal{
+/* labelled clickable box at a transition room, offset toward the exit direction */
+.xport{
   position:absolute; white-space:nowrap; z-index:6; cursor:pointer;
-  font-size:.6rem; line-height:1.15; padding:0 3px; pointer-events:auto;
-  background:#04250b; color:var(--c-lgreen); border:1px solid var(--c-lgreen);
-  border-radius:3px; text-decoration:none; box-shadow:0 0 3px #000;
+  font-size:.6rem; line-height:1.2; padding:0 3px; pointer-events:auto;
+  color:var(--c-lgreen); background:rgba(2,18,4,.92);
+  border:1px dashed var(--c-lgreen); border-radius:2px; text-decoration:none;
 }
-.portal:hover{ background:var(--c-lgreen); color:#000; z-index:7 }
-.portal.side-e{ left:calc(100% + 4px); top:50%; transform:translateY(-50%) translateY(calc(var(--i,0)*1.2rem)); }
-.portal.side-w{ right:calc(100% + 4px); top:50%; transform:translateY(-50%) translateY(calc(var(--i,0)*1.2rem)); }
-.portal.side-n{ bottom:calc(100% + 4px); left:50%; transform:translateX(-50%) translateY(calc(var(--i,0)*-1.2rem)); }
-.portal.side-s{ top:calc(100% + 4px); left:50%; transform:translateX(-50%) translateY(calc(var(--i,0)*1.2rem)); }
+.xport:hover{ background:var(--c-lgreen); color:#000; z-index:8 }
+.xport.d-e{ left:140%; top:50%; transform:translateY(calc(-50% + var(--i,0)*1.25rem)) }
+.xport.d-w{ right:140%; top:50%; transform:translateY(calc(-50% + var(--i,0)*1.25rem)) }
+.xport.d-n{ bottom:160%; left:50%; transform:translate(-50%, calc(var(--i,0)*-1.25rem)) }
+.xport.d-s{ top:160%; left:50%; transform:translate(-50%, calc(var(--i,0)*1.25rem)) }
+.xport.d-ne{ bottom:140%; left:120%; transform:translateY(calc(var(--i,0)*-1.25rem)) }
+.xport.d-nw{ bottom:140%; right:120%; transform:translateY(calc(var(--i,0)*-1.25rem)) }
+.xport.d-se{ top:140%; left:120%; transform:translateY(calc(var(--i,0)*1.25rem)) }
+.xport.d-sw{ top:140%; right:120%; transform:translateY(calc(var(--i,0)*1.25rem)) }
+/* elevation / passage / teleport: sit on top of the room itself */
+.xport.d-elev{ bottom:115%; left:50%; transform:translate(-50%, calc(var(--i,0)*-1.25rem)) }
 /* room-type tints */
 .t-shop{color:var(--c-yellow)} .t-temple{color:var(--c-lcyan)} .t-guild{color:var(--c-lmag)}
 .t-arena{color:var(--c-lred)} .t-plaza{color:var(--c-lgreen)} .t-monster{color:var(--c-lred)}

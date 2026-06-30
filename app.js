@@ -66,35 +66,53 @@ async function loadRunes(){
   try { const r = await fetch("zone-runes.json"); if (r.ok) return await r.json(); } catch(e){}
   return { rune:{}, order:[] };
 }
+let PASS = {};                        // room-id -> paid-passage transport (ship/buy passage)
+async function loadPass(){
+  try { const r = await fetch("passages.json"); if (r.ok) return await r.json(); } catch(e){}
+  return {};
+}
 
 /* ---- cross-zone navigation: find every transition that leaves the zone ---- */
 const ARROW = {n:"↑",s:"↓",e:"→",w:"←",ne:"↗",nw:"↖",se:"↘",sw:"↙",up:"↑",down:"↓"};
 function crossZoneLinks(ids){
   const out = [], seen = new Set();
-  const push = (fromId, toId, dir, kind, trigger) => {
+  const push = (fromId, toId, dir, kind, extra) => {
     const tr = DB.rooms[toId];
     if (!tr || !tr.area || tr.area === CUR) return;        // same zone -> not a portal
     const k = fromId + ">" + toId;
     if (seen.has(k)) return; seen.add(k);
-    out.push({ fromId: Number(fromId), toId: Number(toId), dir, kind, trigger, zone: tr.area });
+    out.push({ fromId: Number(fromId), toId: Number(toId), dir, kind, zone: tr.area, ...(extra || {}) });
   };
   for (const id of ids){
     const room = DB.rooms[id]; if (!room) continue;
+    const p = PASS[id];                                    // paid passage (incl. exit-less docks ship)
+    if (p) push(id, p.to, null, "passage", { method: p.method, cost: p.cost });
     const ex = room.exits || {};
-    for (const d of [...Object.keys(DIR), "up", "down"]) if (ex[d]) push(id, ex[d], d, "exit");
+    for (const d of [...Object.keys(DIR), "up", "down"]) if (ex[d]){
+      if (p && p.to === ex[d]) continue;                   // this exit IS the passage (don't label as stair)
+      push(id, ex[d], d, "exit");
+    }
     const an = ANN[id] || {};
     for (const dr of (an.doors || [])) push(id, dr.to, dr.dir, "door");
     for (const t of (an.teleports || [])){
-      if (t.to) push(id, t.to, null, "tele", t.trigger);
-      else if (t.fail_to) push(id, t.fail_to, null, "tele", (t.trigger || "go") + " fail");
+      if (t.to) push(id, t.to, null, "tele", { trigger: t.trigger });
+      else if (t.fail_to) push(id, t.fail_to, null, "tele", { trigger: (t.trigger || "go") + " fail" });
     }
   }
   return out;
+}
+function portalArrow(l){
+  if (l.kind === "passage") return "⛴";
+  if (l.kind === "tele") return "✦";
+  if (l.dir === "up") return "↑";
+  if (l.dir === "down") return "↓";
+  return ARROW[l.dir] || "→";
 }
 // bias chips to the right (horizontal exits) or below (vertical/teleport) so they
 // never clip past the map's top/left origin; the arrow in the label shows true direction
 const sideOf = d => ["e","ne","se","w","nw","sw"].includes(d) ? "e" : "s";
 function linkLabel(l){
+  if (l.kind === "passage") return `⛴ buy passage to ${l.zone}${l.cost ? ` · ${l.cost}` : ""}`;
   if (l.kind === "tele") return `✦ ${l.trigger || "teleport"} → ${l.zone}`;
   if (l.dir === "up")   return `↑ up to ${l.zone}`;
   if (l.dir === "down") return `↓ down to ${l.zone}`;
@@ -140,6 +158,7 @@ async function boot(){
   DB = await loadData();
   ANN = await loadAnn();
   RUNES = await loadRunes();
+  PASS = await loadPass();
   // Group rooms by their `area` field.
   const order = (DB.areas || []).map(a => a.name);
   const groups = {};
@@ -203,11 +222,11 @@ function renderLegend(){
     const t = TYPE.find(([,v]) => v.l === l)[1];
     return `<span class="${t.c}">${t.g} ${l}</span>`;
   }).join("")
-    + `<span style="color:var(--amber)">↕ stairs</span>`
     + `<span style="color:var(--c-brown)">╪ door</span>`
     + `<span class="trap">! trap</span>`
     + `<span class="tele">✦ teleport</span>`
-    + `<span class="rune">◆ rune</span>`;
+    + `<span class="rune">◆ rune</span>`
+    + `<span style="color:var(--c-lgreen)">⌐ → other area (click)</span>`;
 }
 
 function selectArea(name){
@@ -300,7 +319,7 @@ function layoutAndRender(ids){
     const ex0 = room.exits || {};
     const sd = (ex0.up && ex0.down) ? "↕" : ex0.up ? "↑" : ex0.down ? "↓" : "";
     const an = ANN[id] || {};
-    let marks = sd ? `<i class="stair">${sd}</i>` : "";
+    let marks = "";
     if (an.traps)     marks += `<i class="mk trap" title="trap">!</i>`;
     if (an.teleports) marks += `<i class="mk tele" title="teleport / magic word">✦</i>`;
     if (an.runes)     marks += `<i class="mk rune" title="rune">◆</i>`;
@@ -315,9 +334,26 @@ function layoutAndRender(ids){
   // hovering a list entry highlights its source room(s) on the map.
   const links = crossZoneLinks(ids);
   renderPortals(links);
+  // A labelled, clickable dashed-green box at each transition room — offset toward the
+  // exit for cardinal directions, on top of the room for elevation/passage/teleport.
+  const CARD = ["n","s","e","w","ne","nw","se","sw"];
+  const stack = new Map();                 // "fromId:dirClass" -> count, to fan out duplicates
+  const placed = new Set();                // one box per (room, dir, zone)
   for (const l of links){
-    const c = document.querySelector(`.room[data-id="${l.fromId}"]`);
-    if (c) c.classList.add("portal-room");
+    const cell = document.querySelector(`.room[data-id="${l.fromId}"]`);
+    if (!cell) continue;
+    const dc = CARD.includes(l.dir) ? l.dir : "elev";
+    const key = l.fromId + ":" + dc + ":" + l.zone;
+    if (placed.has(key)) continue; placed.add(key);
+    const sk = l.fromId + ":" + dc;
+    const i = stack.get(sk) || 0; stack.set(sk, i + 1);
+    const a = document.createElement("a");
+    a.href = "#"; a.className = "xport d-" + dc;
+    a.style.setProperty("--i", i);
+    a.innerHTML = `${portalArrow(l)} ${esc(abbr(l.zone))}`;
+    a.title = linkLabel(l) + ` (room #${l.toId})`;
+    a.onclick = e => { e.preventDefault(); e.stopPropagation(); gotoRoom(l.toId); };
+    cell.appendChild(a);
   }
   padForPanels();
 }
