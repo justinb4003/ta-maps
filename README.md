@@ -8,9 +8,14 @@ door game, module `TSGARN`), rebuilt straight from the original module data.
 ## What this is
 
 Every room, exit, shop and monster lair was extracted from the original game module —
-**4,139 rooms across 16 areas** (4 towns + 10 dungeon levels + the volcano), connected by a
+**4,139 rooms across 41 zones** (4 towns + 37 physical dungeon zones, from the entrance
+caves down through the labyrinth, swamp, desert and volcano), connected by a
 **99.6%-reciprocal exit graph**. The browser lays those rooms out on a grid from their
 exits and draws them in a retro DOS/ANSI style.
+
+Room data (names + exits) was verified room-by-room against the live game engine — a bot
+teleported to each room and compared what the engine reported. Zones are grouped by
+physical area (contiguous room-id range), not difficulty tier.
 
 **Hover any room to reveal its hidden room number** — the thing the old hand-drawn maps
 never showed you. Click a room to inspect its full description, exits, shops and monsters.
