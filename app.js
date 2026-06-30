@@ -287,37 +287,14 @@ function layoutAndRender(ids){
     map.appendChild(cell);
   }
 
-  // cross-zone transitions: docked list (full, grouped) + inline labelled chips
+  // cross-zone transitions: a clean docked list in the corner — NO labels pasted over
+  // the map (the map stays pure ASCII). Transition rooms get a subtle dashed outline;
+  // hovering a list entry highlights its source room(s) on the map.
   const links = crossZoneLinks(ids);
   renderPortals(links);
-  // outline every transition room…
   for (const l of links){
     const c = document.querySelector(`.room[data-id="${l.fromId}"]`);
     if (c) c.classList.add("portal-room");
-  }
-  // …but place only one chip per distinct destination so repeats (e.g. 19 identical
-  // springboards) don't pile up on the map; the docked list carries the full count.
-  const seenChip = new Set();
-  const byFrom = {};
-  for (const l of links){
-    const lab = chipLabel(l);
-    if (seenChip.has(lab)) continue;
-    seenChip.add(lab);
-    (byFrom[l.fromId] ||= []).push(l);
-  }
-  for (const fromId in byFrom){
-    const cell = document.querySelector(`.room[data-id="${fromId}"]`);
-    if (!cell) continue;
-    byFrom[fromId].forEach((l, i) => {
-      const chip = document.createElement("a");
-      chip.href = "#";
-      chip.className = "portal side-" + sideOf(l.dir);
-      chip.style.setProperty("--i", i);
-      chip.textContent = chipLabel(l);
-      chip.title = linkLabel(l) + ` (room #${l.toId})`;
-      chip.onclick = e => { e.preventDefault(); e.stopPropagation(); gotoRoom(l.toId); };
-      cell.appendChild(chip);
-    });
   }
 }
 
