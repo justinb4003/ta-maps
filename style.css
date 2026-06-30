@@ -66,10 +66,20 @@ main{display:flex; gap:0; flex:1; min-height:0}
 #mlegend b{color:var(--amber)}
 #mlegend .t-monster{display:inline-block; min-width:1.5em; color:var(--c-lred)}
 #map{
-  display:inline-grid; gap:0;
-  grid-auto-rows:var(--cell); grid-auto-columns:var(--cell);
-  font-size:.95rem; line-height:var(--cell);
+  display:inline-block; white-space:pre;
+  font-family:"DejaVu Sans Mono","Consolas","Courier New",monospace;
+  font-size:14px; line-height:15px; color:var(--c-gray);
 }
+/* room boxes [XX] — clickable, coloured by type */
+.box{ text-decoration:none; color:var(--c-gray) }
+.box:hover, .box.sel{ background:var(--amber); color:#000 }
+.box.t-monster{color:var(--c-lred)} .box.t-shop{color:var(--c-yellow)}
+.box.t-temple{color:var(--c-lcyan)} .box.t-guild{color:var(--c-lmag)}
+.box.t-arena{color:var(--c-lred)} .box.t-plaza{color:var(--c-lgreen)}
+.box.t-seed{color:var(--c-white)} .box.t-door{color:var(--c-brown)}
+/* destination labels in the margins — clickable */
+.plabel{ color:var(--c-lgreen); text-decoration:none; cursor:pointer }
+.plabel:hover{ background:var(--c-lgreen); color:#000 }
 /* a single room cell */
 .room{
   width:var(--cell); height:var(--cell); text-align:center;

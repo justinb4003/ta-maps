@@ -266,95 +266,144 @@ function layout(ids){
   return pos;
 }
 
+/* ---- ASCII-art map renderer: rooms as [XX] boxes, line corridors, margin labels ---- */
+const CARD8 = ["n","s","e","w","ne","nw","se","sw"];
+// diagonal connector glyph + the two gap-cell offsets [dcol,drow] from the box origin
+const DIAG = { ne:["/",[4,-1],[5,-2]], nw:["\\",[-1,-1],[-2,-2]],
+               se:["\\",[4,1],[5,2]],  sw:["/",[-1,1],[-2,2]] };
+
+function boxCode(id, room, codes, seedId){
+  if (id === seedId) return "*";
+  if (room.shop) return "$";
+  if (room.monsters && room.monsters.length && codes[room.monsters[0]]) return codes[room.monsters[0]];
+  const g = typeOf(room).g;
+  return (g === "·" || g === "+") ? " " : g;          // plain rooms render as blank [ ]
+}
+function boxCls(id, room, codes, seedId){
+  if (id === seedId) return "t-seed";
+  if (room.shop) return "t-shop";
+  if (room.monsters && room.monsters.length) return "t-monster";
+  return typeOf(room).c || "";
+}
+function portalText(l){
+  if (l.kind === "passage") return "Passage to " + abbr(l.zone);
+  if (l.kind === "tele")    return (l.trigger ? l.trigger + " " : "") + "→" + abbr(l.zone);
+  if (l.dir === "up")   return "up to " + abbr(l.zone);
+  if (l.dir === "down") return "down to " + abbr(l.zone);
+  return abbr(l.zone);                                 // cardinal: the line shows the direction
+}
+function boxClick(id){
+  document.querySelectorAll(".box.sel").forEach(e => e.classList.remove("sel"));
+  const el = document.querySelector(`.box[data-id="${id}"]`);
+  if (el) el.classList.add("sel");
+  showDetail(id);
+}
+
 function layoutAndRender(ids){
   const map = document.getElementById("map");
-  map.innerHTML = "";
   const pos = layout(ids);
-  let minC=Infinity,minR=Infinity,maxC=-Infinity,maxR=-Infinity;
-  for (const [,[c,r]] of pos){ minC=Math.min(minC,c);minR=Math.min(minR,r);maxC=Math.max(maxC,c);maxR=Math.max(maxR,r); }
-  // 2x grid so corridors get their own mid-cells
-  map.style.gridTemplateColumns = `repeat(${(maxC-minC)*2+1}, var(--cell))`;
-  const gx = c => (c-minC)*2+1, gy = r => (r-minR)*2+1;
+  const codes = monsterCodes(ids);
+  renderMonLegend(codes);
+  const seedId = ids.find(id => /plaza|square|entrance/i.test((DB.rooms[id]||{}).name||"")) ?? Number(ids[0]);
 
-  // corridors first (under rooms)
+  let minC=Infinity,minR=Infinity,maxC=-Infinity,maxR=-Infinity;
+  for (const [,[c,r]] of pos){ if(c<minC)minC=c; if(c>maxC)maxC=c; if(r<minR)minR=r; if(r>maxR)maxR=r; }
+
+  // char buffer: box [XX] = 4 wide, h-stride 6, v-stride 3; margins hold the off-zone labels
+  const LM=34, TM=4, RM=34, BM=4;
+  const bx = c => (c-minC)*6 + LM;
+  const by = r => (r-minR)*3 + TM;
+  const W = (maxC-minC)*6 + 4 + LM + RM;
+  const H = (maxR-minR)*3 + 1 + TM + BM;
+  const buf = Array.from({length:H}, () => new Array(W).fill(" "));
+  const reg = Array.from({length:H}, () => new Array(W).fill(null));
+  const put = (row,col,ch,region) => {
+    if (row<0||row>=H||col<0||col>=W) return;
+    buf[row][col]=ch; if (region!==undefined) reg[row][col]=region;
+  };
+  const putStr = (row,col,str,region) => { for (let i=0;i<str.length;i++) put(row,col+i,str[i],region); };
+  const rowFree = (row,col,len) => {
+    if (row<0||row>=H) return false;
+    for (let i=-1;i<=len;i++){ const cc=col+i; if (cc>=0&&cc<W&&buf[row][cc]!==" ") return false; }
+    return true;
+  };
+  const freeRow = (row,col,len) => {            // nudge a margin label to a clear row
+    for (const dy of [0,1,-1,2,-2,3,-3]) if (rowFree(row+dy,col,len)) return row+dy;
+    return row;
+  };
+
+  // ---- intra-zone corridors (one per edge) ----
   const drawn = new Set();
   for (const [id,[c,r]] of pos){
     const ex = (DB.rooms[id]||{}).exits || {};
+    const X=bx(c), Y=by(r);
     for (const d in DIR){
       const nb = Number(ex[d]); if (!nb || !pos.has(nb)) continue;
-      const [dc,dr]=DIR[d];
-      const key = [Math.min(id,nb),Math.max(id,nb),d].join();
-      if (drawn.has(key)) continue; drawn.add(key);
-      const mx = gx(c)+dc, my = gy(r)+dr;        // mid-cell between the two rooms
-      const cell = document.createElement("div");
-      cell.style.gridColumn = mx; cell.style.gridRow = my;
-      const door = doorBetween(id, nb);
-      if (door){
-        cell.className = "link door" + (door.locked ? " locked" : "");
-        cell.textContent = (dc && dr) ? "◫" : dc ? "╪" : "╫";
-        cell.title = door.locked ? `locked door — ${door.key || "key"}` : "door";
-      } else {
-        cell.className = "link";
-        cell.textContent = CORR[dc+","+dr] || "+";
-      }
-      map.appendChild(cell);
+      const ek = Math.min(id,nb)+"_"+Math.max(id,nb);
+      if (drawn.has(ek)) continue; drawn.add(ek);
+      if (d==="e"){ put(Y,X+4,"-"); put(Y,X+5,"-"); }
+      else if (d==="w"){ put(Y,X-1,"-"); put(Y,X-2,"-"); }
+      else if (d==="s"){ put(Y+1,X+1,"|"); put(Y+2,X+1,"|"); }
+      else if (d==="n"){ put(Y-1,X+1,"|"); put(Y-2,X+1,"|"); }
+      else if (DIAG[d]){ const [ch,a,b]=DIAG[d]; put(Y+a[1],X+a[0],ch); put(Y+b[1],X+b[0],ch); }
     }
   }
-  // monster codes for this zone + corner legend
-  const codes = monsterCodes(ids);
-  renderMonLegend(codes);
 
-  // rooms on top
+  // ---- room boxes ----
   for (const [id,[c,r]] of pos){
-    const room = DB.rooms[id];
-    let glyph, cls;
-    if (room.shop){ glyph = "$"; cls = "t-shop"; }
-    else if (room.monsters && room.monsters.length && codes[room.monsters[0]]){
-      glyph = codes[room.monsters[0]]; cls = "t-monster";
-    } else { const t = typeOf(room); glyph = t.g; cls = t.c; }
-    const cell = document.createElement("div");
-    cell.className = "room " + cls + (glyph.length > 1 ? " code2" : "");
-    cell.dataset.id = id;
-    cell.style.gridColumn = gx(c); cell.style.gridRow = gy(r);
-    const ex0 = room.exits || {};
-    const sd = (ex0.up && ex0.down) ? "↕" : ex0.up ? "↑" : ex0.down ? "↓" : "";
-    const an = ANN[id] || {};
-    let marks = "";
-    if (an.traps)     marks += `<i class="mk trap" title="trap">!</i>`;
-    if (an.teleports) marks += `<i class="mk tele" title="teleport / magic word">✦</i>`;
-    if (an.runes)     marks += `<i class="mk rune" title="rune">◆</i>`;
-    cell.innerHTML = `${esc(glyph)}${marks}<span class="num">#${id} ${esc(clean(room.name))}${sd}</span>`;
-    cell.onmouseenter = () => showDetail(id);
-    cell.onclick = () => { document.querySelectorAll(".room.sel").forEach(e=>e.classList.remove("sel")); cell.classList.add("sel"); showDetail(id); };
-    map.appendChild(cell);
+    const room = DB.rooms[id]; const ex = room.exits||{};
+    const code = boxCode(id, room, codes, seedId);
+    const elev = (ex.up&&ex.down)?"↕":ex.up?"^":ex.down?"v":"";
+    const content = code.length>=2 ? code.slice(0,2) : code + (elev || " ");
+    putStr(by(r), bx(c), "["+content+"]", { kind:"room", id, cls:boxCls(id,room,codes,seedId) });
   }
 
-  // cross-zone transitions: a clean docked list in the corner — NO labels pasted over
-  // the map (the map stays pure ASCII). Transition rooms get a subtle dashed outline;
-  // hovering a list entry highlights its source room(s) on the map.
+  // ---- exits to other zones: a connector + the destination NAME as a margin label ----
   const links = crossZoneLinks(ids);
-  renderPortals(links);
-  // A labelled, clickable dashed-green box at each transition room — offset toward the
-  // exit for cardinal directions, on top of the room for elevation/passage/teleport.
-  const CARD = ["n","s","e","w","ne","nw","se","sw"];
-  const stack = new Map();                 // "fromId:dirClass" -> count, to fan out duplicates
-  const placed = new Set();                // one box per (room, dir, zone)
+  const seen = new Set();
   for (const l of links){
-    const cell = document.querySelector(`.room[data-id="${l.fromId}"]`);
-    if (!cell) continue;
-    const dc = CARD.includes(l.dir) ? l.dir : "elev";
-    const key = l.fromId + ":" + dc + ":" + l.zone;
-    if (placed.has(key)) continue; placed.add(key);
-    const sk = l.fromId + ":" + dc;
-    const i = stack.get(sk) || 0; stack.set(sk, i + 1);
-    const a = document.createElement("a");
-    a.href = "#"; a.className = "xport d-" + dc;
-    a.style.setProperty("--i", i);
-    a.innerHTML = `${portalArrow(l)} ${esc(abbr(l.zone))}`;
-    a.title = linkLabel(l) + ` (room #${l.toId})`;
-    a.onclick = e => { e.preventDefault(); e.stopPropagation(); gotoRoom(l.toId); };
-    cell.appendChild(a);
+    const sp = pos.get(l.fromId); if (!sp) continue;
+    const [c,r]=sp, X=bx(c), Y=by(r);
+    const dc = CARD8.includes(l.dir) ? l.dir : "elev";
+    const k = l.fromId+":"+dc+":"+l.zone;
+    if (seen.has(k)) continue; seen.add(k);
+    const text = portalText(l);
+    const region = { kind:"portal", toId:l.toId, title:linkLabel(l)+` (room #${l.toId})` };
+    if (dc==="e"||dc==="elev"){ if(dc==="e") put(Y,X+4,"-"); putStr(freeRow(Y,X+5,text.length), X+5, text, region); }
+    else if (dc==="w"){ put(Y,X-1,"-"); const lc=X-3-text.length; putStr(freeRow(Y,lc,text.length), lc, text, region); }
+    else if (dc==="n"){ put(Y-1,X+1,"|"); put(Y-2,X+1,"|"); putStr(Y-3, X+1-(text.length>>1), text, region); }
+    else if (dc==="s"){ put(Y+1,X+1,"|"); put(Y+2,X+1,"|"); putStr(Y+3, X+1-(text.length>>1), text, region); }
+    else { const [ch,a,b]=DIAG[dc]; put(Y+a[1],X+a[0],ch); put(Y+b[1],X+b[0],ch);
+      const lr = Y+b[1], lc = X+b[0];
+      if (dc==="ne"||dc==="se") putStr(lr, lc+2, text, region);
+      else putStr(lr, lc-2-text.length, text, region);
+    }
   }
+
+  // ---- render buffer to clickable HTML, trimming unused margins ----
+  let minCol=W, maxCol=0;
+  for (let row=0; row<H; row++){
+    for (let col=0; col<W; col++) if (buf[row][col]!==" "){ if(col<minCol)minCol=col; if(col>maxCol)maxCol=col; }
+  }
+  if (minCol>maxCol){ map.innerHTML=""; padForPanels(); return; }
+  let html="";
+  for (let row=0; row<H; row++){
+    let col=minCol;
+    while (col<=maxCol){
+      const region = reg[row][col];
+      let end=col; while (end<=maxCol && reg[row][end]===region) end++;
+      const text = buf[row].slice(col,end).join("");
+      if (region===null) html += esc(text);
+      else if (region.kind==="room")
+        html += `<a class="box ${region.cls}" data-id="${region.id}" href="#" `+
+          `onclick="boxClick(${region.id});return false;" onmouseenter="showDetail(${region.id})">${esc(text)}</a>`;
+      else html += `<a class="plabel" href="#" title="${esc(region.title)}" `+
+          `onclick="gotoRoom(${region.toId});return false;">${esc(text)}</a>`;
+      col=end;
+    }
+    html += "\n";
+  }
+  map.innerHTML = html;
   padForPanels();
 }
 
@@ -386,9 +435,9 @@ function gotoRoom(id){
   const r = DB.rooms[id]; if (!r) return;
   if (r.area !== CUR) selectArea(r.area);
   requestAnimationFrame(() => {
-    const cell = document.querySelector(`.room[data-id="${id}"]`);
+    const cell = document.querySelector(`.box[data-id="${id}"]`);
     if (cell){
-      document.querySelectorAll(".room.sel").forEach(e => e.classList.remove("sel"));
+      document.querySelectorAll(".box.sel").forEach(e => e.classList.remove("sel"));
       cell.classList.add("sel");
       cell.scrollIntoView({ block:"center", inline:"center" });
     }
