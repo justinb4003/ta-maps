@@ -338,9 +338,8 @@ function stackedLayout(ids){
 
 /* ---- ASCII-art map renderer: rooms as [XX] boxes, line corridors, margin labels ---- */
 const CARD8 = ["n","s","e","w","ne","nw","se","sw"];
-// diagonal connector glyph + the two gap-cell offsets [dcol,drow] from the box origin
-const DIAG = { ne:["/",[4,-1],[5,-2]], nw:["\\",[-1,-1],[-2,-2]],
-               se:["\\",[4,1],[5,2]],  sw:["/",[-1,1],[-2,2]] };
+// diagonal connector glyph + single gap-cell offset [dcol,drow] from the box origin (v-stride 2)
+const DIAG = { ne:["/",4,-1], nw:["\\",-1,-1], se:["\\",4,1], sw:["/",-1,1] };
 
 function boxCode(id, room, codes, seedId){
   if (id === seedId) return "*";
@@ -355,12 +354,16 @@ function boxCls(id, room, codes, seedId){
   if (room.monsters && room.monsters.length) return "t-monster";
   return typeOf(room).c || "";
 }
-function portalText(l){
-  if (l.kind === "passage") return "Passage to " + abbr(l.zone);
-  if (l.kind === "tele")    return (l.trigger ? l.trigger + " " : "") + "→" + abbr(l.zone);
-  if (l.dir === "up")   return "up to " + abbr(l.zone);
-  if (l.dir === "down") return "down to " + abbr(l.zone);
-  return abbr(l.zone);                                 // cardinal: the line shows the direction
+// inline exit labels drop the leading "The " and the " - " (community style: "to Orc Caves")
+const inlineArea = z => String(z).replace(/^The\s+/i,"").replace(/\s*-\s*/," ");
+function portalLabel(l){
+  const area = inlineArea(l.zone);
+  if (l.kind === "passage") return { mark:"[*]", text:"Passage to " + area };
+  if (l.kind === "tele")    return l.trigger ? { mark:"[@]", text:"say " + l.trigger }
+                                             : { mark:"[T]", text:"Teleport to " + area };
+  if (l.dir === "up")   return { mark:"[*]", text:"Up to " + area };
+  if (l.dir === "down") return { mark:"[*]", text:"Down to " + area };
+  return { mark:"[*]", text:"to " + area };            // cardinal: marker + "to <Area>"
 }
 function boxClick(id){
   document.querySelectorAll(".box.sel").forEach(e => e.classList.remove("sel"));
@@ -379,12 +382,12 @@ function layoutAndRender(ids){
   let minC=Infinity,minR=Infinity,maxC=-Infinity,maxR=-Infinity;
   for (const [,[c,r]] of pos){ if(c<minC)minC=c; if(c>maxC)maxC=c; if(r<minR)minR=r; if(r>maxR)maxR=r; }
 
-  // char buffer: box [XX] = 4 wide, h-stride 6, v-stride 3; margins hold the off-zone labels
-  const LM=34, TM=4, RM=34, BM=4;
+  // char buffer: box [XX] = 4 wide, h-stride 6, v-stride 2 (single corridor row); margins hold labels
+  const LM=38, TM=4, RM=38, BM=4;
   const bx = c => (c-minC)*6 + LM;
-  const by = r => (r-minR)*3 + TM;
+  const by = r => (r-minR)*2 + TM;
   const W = (maxC-minC)*6 + 4 + LM + RM;
-  const H = (maxR-minR)*3 + 1 + TM + BM;
+  const H = (maxR-minR)*2 + 1 + TM + BM;
   const buf = Array.from({length:H}, () => new Array(W).fill(" "));
   const reg = Array.from({length:H}, () => new Array(W).fill(null));
   const put = (row,col,ch,region) => {
@@ -413,9 +416,9 @@ function layoutAndRender(ids){
       if (drawn.has(ek)) continue; drawn.add(ek);
       if (d==="e"){ put(Y,X+4,"-"); put(Y,X+5,"-"); }
       else if (d==="w"){ put(Y,X-1,"-"); put(Y,X-2,"-"); }
-      else if (d==="s"){ put(Y+1,X+1,"|"); put(Y+2,X+1,"|"); }
-      else if (d==="n"){ put(Y-1,X+1,"|"); put(Y-2,X+1,"|"); }
-      else if (DIAG[d]){ const [ch,a,b]=DIAG[d]; put(Y+a[1],X+a[0],ch); put(Y+b[1],X+b[0],ch); }
+      else if (d==="s"){ put(Y+1,X+1,"|"); }
+      else if (d==="n"){ put(Y-1,X+1,"|"); }
+      else if (DIAG[d]){ const [ch,dcol,drow]=DIAG[d]; put(Y+drow, X+dcol, ch); }
     }
   }
 
@@ -436,25 +439,26 @@ function layoutAndRender(ids){
     putStr(yy, nc, note);
   }
 
-  // ---- exits to other zones: a connector + the destination NAME as a margin label ----
+  // ---- exits to other zones: an exit marker [*] + a clickable "to <Area>" label ----
   const links = crossZoneLinks(ids);
   const seen = new Set();
   for (const l of links){
     const sp = pos.get(l.fromId); if (!sp) continue;
     const [c,r]=sp, X=bx(c), Y=by(r);
-    const dc = CARD8.includes(l.dir) ? l.dir : "elev";
-    const k = l.fromId+":"+dc+":"+l.zone;
+    const d = CARD8.includes(l.dir) ? l.dir : "elev";
+    const k = l.fromId+":"+d+":"+l.zone;
     if (seen.has(k)) continue; seen.add(k);
-    const text = portalText(l);
+    const { mark, text } = portalLabel(l);
     const region = { kind:"portal", toId:l.toId, title:linkLabel(l)+` (room #${l.toId})` };
-    if (dc==="e"||dc==="elev"){ if(dc==="e") put(Y,X+4,"-"); putStr(freeRow(Y,X+5,text.length), X+5, text, region); }
-    else if (dc==="w"){ put(Y,X-1,"-"); const lc=X-3-text.length; putStr(freeRow(Y,lc,text.length), lc, text, region); }
-    else if (dc==="n"){ put(Y-1,X+1,"|"); put(Y-2,X+1,"|"); putStr(Y-3, X+1-(text.length>>1), text, region); }
-    else if (dc==="s"){ put(Y+1,X+1,"|"); put(Y+2,X+1,"|"); putStr(Y+3, X+1-(text.length>>1), text, region); }
-    else { const [ch,a,b]=DIAG[dc]; put(Y+a[1],X+a[0],ch); put(Y+b[1],X+b[0],ch);
-      const lr = Y+b[1], lc = X+b[0];
-      if (dc==="ne"||dc==="se") putStr(lr, lc+2, text, region);
-      else putStr(lr, lc-2-text.length, text, region);
+    const rs = mark+" "+text, ls = text+" "+mark;       // marker toward the room
+    if (d==="e"){ put(Y,X+4,"-"); put(Y,X+5,"-"); putStr(freeRow(Y,X+6,rs.length), X+6, rs, region); }
+    else if (d==="elev"){ putStr(freeRow(Y,X+5,rs.length), X+5, rs, region); }
+    else if (d==="w"){ put(Y,X-1,"-"); put(Y,X-2,"-"); const lc=X-3-ls.length; putStr(freeRow(Y,lc,ls.length), lc, ls, region); }
+    else if (d==="s"){ put(Y+1,X+1,"|"); putStr(Y+2, X, rs, region); }
+    else if (d==="n"){ put(Y-1,X+1,"|"); putStr(Y-2, X, rs, region); }
+    else { const [ch,dcol,drow]=DIAG[d]; put(Y+drow, X+dcol, ch);
+      if (d==="ne"||d==="se") putStr(Y+2*drow, X+6, rs, region);
+      else putStr(Y+2*drow, X-2-ls.length, ls, region);  // nw / sw -> leftward
     }
   }
 
