@@ -61,6 +61,12 @@ function doorBetween(a, b){
 }
 const stripSrc = s => String(s).replace(/\s*\[[^\]]*\]\s*$/, "").trim();
 
+let RUNES = { rune:{}, order:[] };    // zone -> rune tier, plus grouped order
+async function loadRunes(){
+  try { const r = await fetch("zone-runes.json"); if (r.ok) return await r.json(); } catch(e){}
+  return { rune:{}, order:[] };
+}
+
 /* ---- cross-zone navigation: find every transition that leaves the zone ---- */
 const ARROW = {n:"↑",s:"↓",e:"→",w:"←",ne:"↗",nw:"↖",se:"↘",sw:"↙",up:"↑",down:"↓"};
 function crossZoneLinks(ids){
@@ -133,13 +139,17 @@ function renderPortals(links){
 async function boot(){
   DB = await loadData();
   ANN = await loadAnn();
-  // Group rooms by their `area` field, ordered by the areas list (towns first).
+  RUNES = await loadRunes();
+  // Group rooms by their `area` field.
   const order = (DB.areas || []).map(a => a.name);
   const groups = {};
   for (const id in DB.rooms){ const a = DB.rooms[id].area || "Unknown"; (groups[a] ||= []).push(+id); }
   DB.areas = [...new Set([...order, ...Object.keys(groups)])]
     .filter(n => groups[n] && groups[n].length)
     .map(name => ({ name, rooms: groups[name] }));
+  // Order the nav by rune progression (non-rune → White → … → Violet).
+  const oidx = new Map((RUNES.order || []).map((n, i) => [n, i]));
+  DB.areas.sort((a, b) => (oidx.has(a.name) ? oidx.get(a.name) : 999) - (oidx.has(b.name) ? oidx.get(b.name) : 999));
   renderNav();
   renderLegend();
   if (DB.areas.length){
@@ -162,11 +172,24 @@ async function loadData(){
   return { rooms:{}, areas:[] };
 }
 
+const RUNE_LABEL = { none:"○ No rune needed", white:"◆ White Rune", yellow:"◆ Yellow Rune",
+                     green:"◆ Green Rune", blue:"◆ Blue Rune", violet:"◆ Violet Rune" };
 function renderNav(){
   const nav = document.getElementById("areas");
   nav.innerHTML = "";
+  const tierOf = n => (RUNES.rune || {})[n] || "none";
+  let cur = null;
   for (const a of DB.areas){
+    const tier = tierOf(a.name);
+    if (tier !== cur){
+      cur = tier;
+      const div = document.createElement("div");
+      div.className = "rune-divider rune-" + tier;
+      div.textContent = RUNE_LABEL[tier] || tier;
+      nav.appendChild(div);
+    }
     const b = document.createElement("button");
+    b.className = "rune-" + tier;
     b.textContent = `${a.name} (${a.rooms.length})`;
     b.dataset.area = a.name;
     b.onclick = () => selectArea(a.name);

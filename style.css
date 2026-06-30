@@ -33,7 +33,24 @@ nav#areas button{
   background:#101010; border:1px solid var(--c-dgray); padding:.2rem .55rem;
 }
 nav#areas button:hover{border-color:var(--c-lcyan); color:var(--c-white)}
-nav#areas button.active{background:var(--c-blue); color:var(--c-white); border-color:var(--c-lblue)}
+nav#areas button.active{background:var(--c-blue); color:var(--c-white); border-color:var(--c-white)}
+/* rune-tier grouping: a full-width labelled divider before each group */
+.rune-divider{
+  flex-basis:100%; width:100%; margin:.35rem 0 .05rem; padding-bottom:.1rem;
+  font-size:.74rem; letter-spacing:.06em; border-bottom:1px solid var(--c-dgray);
+}
+.rune-divider:first-child{margin-top:0}
+.rune-divider.rune-none{color:var(--c-gray)}
+.rune-divider.rune-white{color:var(--c-white)}
+.rune-divider.rune-yellow{color:var(--c-yellow)}
+.rune-divider.rune-green{color:var(--c-lgreen)}
+.rune-divider.rune-blue{color:var(--c-lblue)}
+.rune-divider.rune-violet{color:var(--c-lmag)}
+/* tint each area button's border by the rune needed to reach it */
+nav#areas button.rune-yellow{border-color:var(--c-yellow)}
+nav#areas button.rune-green{border-color:var(--c-green)}
+nav#areas button.rune-blue{border-color:var(--c-lblue)}
+nav#areas button.rune-violet{border-color:var(--c-magenta)}
 
 main{display:flex; gap:0; flex:1; min-height:0}
 #map-wrap{flex:1; position:relative; overflow:hidden}
