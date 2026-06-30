@@ -46,8 +46,24 @@ function monsterCodes(ids){
   return codes;
 }
 
+let ANN = {};                         // room-id -> {doors,traps,teleports,runes,keydrops}
+async function loadAnn(){
+  try { const r = await fetch("ta-annotations.json"); if (r.ok) return await r.json(); } catch(e){}
+  return {};
+}
+// is there a door between rooms a and b? returns the door record or null
+function doorBetween(a, b){
+  for (const [x, y] of [[a, b], [b, a]]){
+    const da = (ANN[x] || {}).doors;
+    if (da) for (const dr of da) if (dr.to === y) return dr;
+  }
+  return null;
+}
+const stripSrc = s => String(s).replace(/\s*\[[^\]]*\]\s*$/, "").trim();
+
 async function boot(){
   DB = await loadData();
+  ANN = await loadAnn();
   // Group rooms by their `area` field, ordered by the areas list (towns first).
   const order = (DB.areas || []).map(a => a.name);
   const groups = {};
@@ -65,6 +81,8 @@ async function boot(){
     const n = decodeURIComponent(location.hash.slice(1));
     if (DB.areas.some(a => a.name === n)) selectArea(n);
   });
+  const rq = new URLSearchParams(location.search).get("room");
+  if (rq && DB.rooms[rq]) requestAnimationFrame(() => gotoRoom(Number(rq)));
 }
 
 async function loadData(){
@@ -92,7 +110,12 @@ function renderLegend(){
   document.getElementById("legend").innerHTML = seen.map(l => {
     const t = TYPE.find(([,v]) => v.l === l)[1];
     return `<span class="${t.c}">${t.g} ${l}</span>`;
-  }).join("") + `<span style="color:var(--amber)">↕ stairs</span>`;
+  }).join("")
+    + `<span style="color:var(--amber)">↕ stairs</span>`
+    + `<span style="color:var(--c-brown)">╪ door</span>`
+    + `<span class="trap">! trap</span>`
+    + `<span class="tele">✦ teleport</span>`
+    + `<span class="rune">◆ rune</span>`;
 }
 
 function selectArea(name){
@@ -153,9 +176,16 @@ function layoutAndRender(ids){
       if (drawn.has(key)) continue; drawn.add(key);
       const mx = gx(c)+dc, my = gy(r)+dr;        // mid-cell between the two rooms
       const cell = document.createElement("div");
-      cell.className = "link";
       cell.style.gridColumn = mx; cell.style.gridRow = my;
-      cell.textContent = CORR[dc+","+dr] || "+";
+      const door = doorBetween(id, nb);
+      if (door){
+        cell.className = "link door" + (door.locked ? " locked" : "");
+        cell.textContent = (dc && dr) ? "◫" : dc ? "╪" : "╫";
+        cell.title = door.locked ? `locked door — ${door.key || "key"}` : "door";
+      } else {
+        cell.className = "link";
+        cell.textContent = CORR[dc+","+dr] || "+";
+      }
       map.appendChild(cell);
     }
   }
@@ -177,8 +207,12 @@ function layoutAndRender(ids){
     cell.style.gridColumn = gx(c); cell.style.gridRow = gy(r);
     const ex0 = room.exits || {};
     const sd = (ex0.up && ex0.down) ? "↕" : ex0.up ? "↑" : ex0.down ? "↓" : "";
-    const badge = sd ? `<i class="stair">${sd}</i>` : "";
-    cell.innerHTML = `${esc(glyph)}${badge}<span class="num">#${id} ${esc(clean(room.name))}${sd}</span>`;
+    const an = ANN[id] || {};
+    let marks = sd ? `<i class="stair">${sd}</i>` : "";
+    if (an.traps)     marks += `<i class="mk trap" title="trap">!</i>`;
+    if (an.teleports) marks += `<i class="mk tele" title="teleport / magic word">✦</i>`;
+    if (an.runes)     marks += `<i class="mk rune" title="rune">◆</i>`;
+    cell.innerHTML = `${esc(glyph)}${marks}<span class="num">#${id} ${esc(clean(room.name))}${sd}</span>`;
     cell.onmouseenter = () => showDetail(id);
     cell.onclick = () => { document.querySelectorAll(".room.sel").forEach(e=>e.classList.remove("sel")); cell.classList.add("sel"); showDetail(id); };
     map.appendChild(cell);
@@ -218,14 +252,30 @@ function showDetail(id){
       const xz = tr.area && tr.area !== r.area ? ` <span class="xz">→ ${esc(tr.area)}</span>` : "";
       return `<a href="#" class="exlink" onclick="gotoRoom(${t});return false;">${d.toUpperCase()}→#${t} ${esc(clean(tr.name) || "?")}</a>${xz}`;
     }).join("<br>") || "—";
+  const a = ANN[id] || {};
+  const arow = (label, items) => items && items.length ? `<dt>${label}</dt><dd>${items.join("<br>")}</dd>` : "";
+  const doorsH = (a.doors||[]).map(d =>
+    `<a href="#" class="exlink" onclick="gotoRoom(${d.to});return false;">${(d.dir||"").toUpperCase()}→#${d.to}</a> ` +
+    (d.locked ? `<span class="lock">🔒 ${esc(d.key||"locked")}</span>` : `<span class="open">(open)</span>`));
+  const trapsH = (a.traps||[]).map(t => `<span class="trap">⚠ ${esc(t.effect||"trap")}</span> ${esc(stripSrc(t.desc||""))}`);
+  const teleH  = (a.teleports||[]).map(t =>
+    `<span class="tele">✦ ${esc(t.trigger||"")}</span>` +
+    (t.to ? ` → <a href="#" class="exlink" onclick="gotoRoom(${t.to});return false;">#${t.to}</a>` : "") +
+    (t.fail_to ? ` <span class="xz">(fail→#${t.fail_to})</span>` : "") + ` ${esc(stripSrc(t.note||""))}`);
+  const runesH = (a.runes||[]).map(s => `<span class="rune">◆</span> ${esc(stripSrc(s))}`);
+  const keysH  = (a.keydrops||[]).map(s => esc(stripSrc(s)));
   document.getElementById("detail").innerHTML = `
     <h2><span class="rid">#${id}</span> ${esc(clean(r.name))}</h2>
     <dl>
       <dt>area</dt><dd>${esc(r.area||"—")}</dd>
       ${r.shop?`<dt>shop</dt><dd class="t-shop">${esc(r.shop)} shop</dd>`:""}
       ${r.monsters&&r.monsters.length?`<dt>monsters</dt><dd class="t-monster">${r.monsters.map(esc).join(", ")}</dd>`:""}
-      ${r.doors&&r.doors.length?`<dt>doors</dt><dd>${r.doors.map(esc).join(", ")}</dd>`:""}
       <dt>exits</dt><dd>${exits}</dd>
+      ${arow("doors", doorsH)}
+      ${arow("traps", trapsH)}
+      ${arow("teleport", teleH)}
+      ${arow("runes", runesH)}
+      ${arow("key drops", keysH)}
     </dl>
     ${r.desc?`<div class="desc">${esc(r.desc)}</div>`:""}`;
 }

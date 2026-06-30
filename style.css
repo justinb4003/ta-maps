@@ -58,6 +58,18 @@ main{display:flex; gap:0; height:calc(100% - 132px)}
 .room:hover, .room.sel{ outline:1px solid var(--amber); color:var(--c-white); z-index:2 }
 .room.sel{ outline:2px solid var(--amber) }
 .room.code2{ font-size:.62rem; letter-spacing:-.05em; font-weight:bold }
+/* annotation marks (trap/teleport/rune) in cell corners */
+.trap{color:var(--c-lred)} .tele{color:var(--c-lcyan)} .rune{color:var(--c-lmag)}
+.room .mk{
+  position:absolute; font-size:.55rem; line-height:1; font-weight:bold;
+  font-style:normal; pointer-events:none; z-index:3; text-shadow:0 0 2px #000;
+}
+.room .mk.trap{ top:-3px; left:-2px }
+.room .mk.tele{ bottom:-3px; right:-2px }
+.room .mk.rune{ bottom:-3px; left:-2px }
+/* doors drawn on the corridor between two rooms */
+.link.door{ color:var(--c-brown); font-weight:bold }
+.link.door.locked{ color:var(--c-lred) }
 /* room-type tints */
 .t-shop{color:var(--c-yellow)} .t-temple{color:var(--c-lcyan)} .t-guild{color:var(--c-lmag)}
 .t-arena{color:var(--c-lred)} .t-plaza{color:var(--c-lgreen)} .t-monster{color:var(--c-lred)}
@@ -90,6 +102,7 @@ aside#detail{
 #detail a.exlink{color:var(--c-lcyan); text-decoration:none}
 #detail a.exlink:hover{color:var(--c-white); text-decoration:underline}
 #detail .xz{color:var(--c-brown); font-size:.85em}
+#detail .lock{color:var(--c-lred)} #detail .open{color:var(--c-dgray)}
 #detail .desc{color:var(--c-gray); border-left:2px solid var(--c-dgray); padding-left:.6rem; margin:.6rem 0}
 .placeholder{color:var(--c-dgray)}
 

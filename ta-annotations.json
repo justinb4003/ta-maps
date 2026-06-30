@@ -1,0 +1,4593 @@
+{
+  "-99": {
+    "doors": [
+      {
+        "to": -98,
+        "dir": "up",
+        "locked": false,
+        "key": null,
+        "door_type": "stairway",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "-98": {
+    "doors": [
+      {
+        "to": -99,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "stairway",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "-95": {
+    "doors": [
+      {
+        "to": -67,
+        "dir": "ne",
+        "locked": false,
+        "key": null,
+        "door_type": "private-room door",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "-67": {
+    "doors": [
+      {
+        "to": -95,
+        "dir": "sw",
+        "locked": false,
+        "key": null,
+        "door_type": "private-room door",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1": {
+    "doors": [
+      {
+        "to": 13,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#38)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "13": {
+    "doors": [
+      {
+        "to": 1,
+        "dir": "n",
+        "locked": true,
+        "key": "iron key",
+        "door_type": "door (art#38)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2": {
+    "doors": [
+      {
+        "to": 19,
+        "dir": "ne",
+        "locked": true,
+        "key": "copper key",
+        "door_type": "door (art#39)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "copper key \u2014 dropped by minotaur [CONFIRMED LAIR record]"
+    ]
+  },
+  "19": {
+    "doors": [
+      {
+        "to": 2,
+        "dir": "sw",
+        "locked": true,
+        "key": "copper key",
+        "door_type": "door (art#39)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3": {
+    "doors": [
+      {
+        "to": 39,
+        "dir": "e",
+        "locked": true,
+        "key": "brass key",
+        "door_type": "door (art#40)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "brass key \u2014 dropped by ogre [CONFIRMED LAIR record]"
+    ]
+  },
+  "39": {
+    "doors": [
+      {
+        "to": 3,
+        "dir": "w",
+        "locked": true,
+        "key": "brass key",
+        "door_type": "door (art#40)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "5": {
+    "doors": [
+      {
+        "to": 6,
+        "dir": "se",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#41)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "bronze key \u2014 dropped by cyclops [CONFIRMED LAIR record]"
+    ]
+  },
+  "6": {
+    "doors": [
+      {
+        "to": 5,
+        "dir": "nw",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#41)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "106": {
+    "doors": [
+      {
+        "to": 57,
+        "dir": "e",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#42)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "57": {
+    "doors": [
+      {
+        "to": 106,
+        "dir": "w",
+        "locked": true,
+        "key": "silver key",
+        "door_type": "door (art#42)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "179": {
+    "doors": [
+      {
+        "to": 76,
+        "dir": "w",
+        "locked": true,
+        "key": "rope",
+        "door_type": "door (art#22)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "76": {
+    "doors": [
+      {
+        "to": 179,
+        "dir": "e",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#22)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "180": {
+    "doors": [
+      {
+        "to": 73,
+        "dir": "w",
+        "locked": true,
+        "key": "rope",
+        "door_type": "door (art#22)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "73": {
+    "doors": [
+      {
+        "to": 180,
+        "dir": "e",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#22)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "111": {
+    "doors": [
+      {
+        "to": 181,
+        "dir": "sw",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#43)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "electrum key \u2014 dropped by stygian dragon [CONFIRMED LAIR record]"
+    ]
+  },
+  "181": {
+    "doors": [
+      {
+        "to": 111,
+        "dir": "ne",
+        "locked": true,
+        "key": "electrum key",
+        "door_type": "door (art#43)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "traps": [
+      {
+        "effect": "heavy trap",
+        "desc": "heavy damage \u2014 community notes up to 180 dmg in L3 [CONFIRMED f2=4 at room 181]",
+        "f2": 4,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG5]"
+      }
+    ]
+  },
+  "889": {
+    "doors": [
+      {
+        "to": 907,
+        "dir": "s",
+        "locked": true,
+        "key": "ruby key",
+        "door_type": "door (art#49)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "907": {
+    "doors": [
+      {
+        "to": 889,
+        "dir": "n",
+        "locked": true,
+        "key": "ruby key",
+        "door_type": "door (art#49)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "909": {
+    "doors": [
+      {
+        "to": 908,
+        "dir": "s",
+        "locked": true,
+        "key": "onyx key",
+        "door_type": "door (art#47)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      },
+      {
+        "to": 910,
+        "dir": "s",
+        "locked": true,
+        "key": "jade key",
+        "door_type": "door (art#48)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      },
+      {
+        "to": 918,
+        "dir": "s",
+        "locked": true,
+        "key": "platinum key",
+        "door_type": "door (art#45)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "908": {
+    "doors": [
+      {
+        "to": 909,
+        "dir": "n",
+        "locked": true,
+        "key": "onyx key",
+        "door_type": "door (art#47)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "910": {
+    "doors": [
+      {
+        "to": 909,
+        "dir": "n",
+        "locked": true,
+        "key": "jade key",
+        "door_type": "door (art#48)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "918": {
+    "doors": [
+      {
+        "to": 909,
+        "dir": "n",
+        "locked": true,
+        "key": "platinum key",
+        "door_type": "door (art#45)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "969": {
+    "doors": [
+      {
+        "to": 965,
+        "dir": "w",
+        "locked": true,
+        "key": "rope",
+        "door_type": "door (art#22)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "965": {
+    "doors": [
+      {
+        "to": 969,
+        "dir": "e",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#22)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "970": {
+    "doors": [
+      {
+        "to": 968,
+        "dir": "w",
+        "locked": true,
+        "key": "rope",
+        "door_type": "door (art#22)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "968": {
+    "doors": [
+      {
+        "to": 970,
+        "dir": "e",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#22)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "499": {
+    "doors": [
+      {
+        "to": 500,
+        "dir": "s",
+        "locked": true,
+        "key": "pearl key",
+        "door_type": "door (art#46)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "runestaff \u2014 dropped by ice giant [CONFIRMED LAIR record]"
+    ]
+  },
+  "500": {
+    "doors": [
+      {
+        "to": 499,
+        "dir": "n",
+        "locked": true,
+        "key": "pearl key",
+        "door_type": "door (art#46)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "runes": [
+      "special room marker \u2014 Cellars/Green Rune event room [CONFIRMED type-1]",
+      "gives Green Rune (use complete Runestaff here) [INFERRED TRIG11 type-1 marker; community SB21 swamp.html]"
+    ]
+  },
+  "990": {
+    "doors": [
+      {
+        "to": 991,
+        "dir": "s",
+        "locked": true,
+        "key": "pearl key",
+        "door_type": "door (art#46)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "traps": [
+      {
+        "effect": "trap",
+        "desc": "damage on entry [INFERRED: f2=1]",
+        "f2": 1,
+        "f3": 2,
+        "source": "CONFIRMED [TRIG40]"
+      }
+    ]
+  },
+  "991": {
+    "doors": [
+      {
+        "to": 990,
+        "dir": "n",
+        "locked": true,
+        "key": "pearl key",
+        "door_type": "door (art#46)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "runes": [
+      "special room marker \u2014 Sewer L3 terminal [CONFIRMED type-1]"
+    ]
+  },
+  "1192": {
+    "doors": [
+      {
+        "to": 1211,
+        "dir": "e",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      },
+      {
+        "to": 1193,
+        "dir": "e",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "say komi",
+        "to": null,
+        "fail_to": 841,
+        "note": "say komi: success opens passage (stays in room); fail \u2192 room 841 [TRIG43]",
+        "enabled": true
+      }
+    ]
+  },
+  "1211": {
+    "doors": [
+      {
+        "to": 1192,
+        "dir": "w",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1193": {
+    "doors": [
+      {
+        "to": 1192,
+        "dir": "w",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1222": {
+    "doors": [
+      {
+        "to": 1223,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1223": {
+    "doors": [
+      {
+        "to": 1222,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1284": {
+    "doors": [
+      {
+        "to": 1285,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "unknown lever (f2=5)",
+        "to": null,
+        "fail_to": 861,
+        "note": "unknown lever (f2=5): success opens passage (stays in room); fail \u2192 room 861 [TRIG51]",
+        "enabled": true
+      }
+    ]
+  },
+  "1285": {
+    "doors": [
+      {
+        "to": 1284,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1452": {
+    "doors": [
+      {
+        "to": 1453,
+        "dir": "nw",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1453": {
+    "doors": [
+      {
+        "to": 1452,
+        "dir": "se",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1456": {
+    "doors": [
+      {
+        "to": 1457,
+        "dir": "nw",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1457": {
+    "doors": [
+      {
+        "to": 1456,
+        "dir": "se",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      },
+      {
+        "to": -65,
+        "dir": "up",
+        "locked": true,
+        "key": "Green Rune",
+        "door_type": "rune-gated passage",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "runes": [
+      "requires Green Rune [CONFIRMED DOOR26]",
+      "Yellow Rune room (CONFIRMED type-1 marker; f3=2)",
+      "gives Yellow Rune [CONFIRMED TRIG63 type-1 marker; community SB21 stoneworks6.html]"
+    ]
+  },
+  "507": {
+    "doors": [
+      {
+        "to": 508,
+        "dir": "up",
+        "locked": true,
+        "key": "Yellow Rune",
+        "door_type": "rune-gated passage",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "runes": [
+      "requires Yellow Rune [CONFIRMED DOOR25]"
+    ]
+  },
+  "508": {
+    "doors": [
+      {
+        "to": 507,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "rune-gated passage",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "runes": [
+      "requires Yellow Rune (return side) [CONFIRMED DOOR25]"
+    ]
+  },
+  "-65": {
+    "doors": [
+      {
+        "to": 1457,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "rune-gated passage",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1460": {
+    "doors": [
+      {
+        "to": 1461,
+        "dir": "up",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#73)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1461": {
+    "doors": [
+      {
+        "to": 1460,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#73)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1462": {
+    "doors": [
+      {
+        "to": 1463,
+        "dir": "up",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#72)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1463": {
+    "doors": [
+      {
+        "to": 1462,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#72)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "say Port1",
+        "to": null,
+        "fail_to": 933,
+        "note": "say Port1: success opens passage (stays in room); fail \u2192 room 933 [TRIG64]",
+        "enabled": true
+      }
+    ]
+  },
+  "1529": {
+    "doors": [
+      {
+        "to": 1528,
+        "dir": "up",
+        "locked": true,
+        "key": "Green Rune",
+        "door_type": "rune-gated passage",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "runes": [
+      "requires Green Rune [CONFIRMED DOOR29]"
+    ]
+  },
+  "1528": {
+    "doors": [
+      {
+        "to": 1529,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "rune-gated passage",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "runes": [
+      "requires Green Rune (return side) [CONFIRMED DOOR29]"
+    ]
+  },
+  "1505": {
+    "doors": [
+      {
+        "to": 1515,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1515": {
+    "doors": [
+      {
+        "to": 1505,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1473": {
+    "doors": [
+      {
+        "to": 1483,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1483": {
+    "doors": [
+      {
+        "to": 1473,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 1505,
+        "fail_to": 1515,
+        "note": "pull lever: success \u2192 room 1505; fail \u2192 room 1515 [TRIG66]",
+        "enabled": true
+      }
+    ]
+  },
+  "1701": {
+    "doors": [
+      {
+        "to": 1711,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "1711": {
+    "doors": [
+      {
+        "to": 1701,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2131": {
+    "doors": [
+      {
+        "to": 2132,
+        "dir": "up",
+        "locked": false,
+        "key": null,
+        "door_type": "one-way passage",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2132": {
+    "doors": [
+      {
+        "to": 2131,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "one-way passage",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2204": {
+    "doors": [
+      {
+        "to": 2205,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2205": {
+    "doors": [
+      {
+        "to": 2204,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2208": {
+    "doors": [
+      {
+        "to": 2209,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2209": {
+    "doors": [
+      {
+        "to": 2208,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2214": {
+    "doors": [
+      {
+        "to": 2215,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2215": {
+    "doors": [
+      {
+        "to": 2214,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2219": {
+    "doors": [
+      {
+        "to": 2220,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2220": {
+    "doors": [
+      {
+        "to": 2219,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2225": {
+    "doors": [
+      {
+        "to": 2226,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2226": {
+    "doors": [
+      {
+        "to": 2225,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2271": {
+    "doors": [
+      {
+        "to": 2272,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2272": {
+    "doors": [
+      {
+        "to": 2271,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2191": {
+    "doors": [
+      {
+        "to": 2192,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2192": {
+    "doors": [
+      {
+        "to": 2191,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": null,
+        "fail_to": 1577,
+        "note": "pull lever: success opens passage (stays in room); fail \u2192 room 1577 [TRIG93]",
+        "enabled": true
+      },
+      {
+        "trigger": "pull lever",
+        "to": 2271,
+        "fail_to": 1507,
+        "note": "pull lever [DISABLED \u2014 f7=0] [TRIG94]",
+        "enabled": false
+      }
+    ]
+  },
+  "2276": {
+    "doors": [
+      {
+        "to": 2277,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#85)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2277": {
+    "doors": [
+      {
+        "to": 2276,
+        "dir": "n",
+        "locked": true,
+        "key": "topaz key",
+        "door_type": "door (art#85)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2297": {
+    "doors": [
+      {
+        "to": 2298,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#82)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2298": {
+    "doors": [
+      {
+        "to": 2297,
+        "dir": "n",
+        "locked": true,
+        "key": "opal key",
+        "door_type": "door (art#82)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2299": {
+    "doors": [
+      {
+        "to": 2300,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#83)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2300": {
+    "doors": [
+      {
+        "to": 2299,
+        "dir": "n",
+        "locked": true,
+        "key": "tigereye key",
+        "door_type": "door (art#83)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "quartz key \u2014 dropped by flame giant [CONFIRMED LAIR record]"
+    ]
+  },
+  "2301": {
+    "doors": [
+      {
+        "to": 2302,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#84)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "2302": {
+    "doors": [
+      {
+        "to": 2301,
+        "dir": "n",
+        "locked": true,
+        "key": "quartz key",
+        "door_type": "door (art#84)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "topaz key \u2014 dropped by flame giant warlord [CONFIRMED LAIR record]"
+    ]
+  },
+  "3098": {
+    "doors": [
+      {
+        "to": 3099,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "say Dwarflord",
+        "to": null,
+        "fail_to": 1727,
+        "note": "say Dwarflord: success opens passage (stays in room); fail \u2192 room 1727 [TRIG127]",
+        "enabled": true
+      }
+    ],
+    "runes": [
+      "requires Violet Rune to pass Dwarflord gate (fail \u2192 room 1727 Labyrinth) [INFERRED TRIG127; community SB21 deepforest.html]"
+    ]
+  },
+  "3099": {
+    "doors": [
+      {
+        "to": 3098,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG96]"
+      }
+    ]
+  },
+  "3196": {
+    "doors": [
+      {
+        "to": 3197,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "stone key \u2014 dropped by stone warrior [CONFIRMED LAIR record]"
+    ]
+  },
+  "3197": {
+    "doors": [
+      {
+        "to": 3196,
+        "dir": "down",
+        "locked": true,
+        "key": "stone key",
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3243": {
+    "doors": [
+      {
+        "to": 3244,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#48)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3244": {
+    "doors": [
+      {
+        "to": 3243,
+        "dir": "down",
+        "locked": true,
+        "key": "jade key",
+        "door_type": "door (art#48)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "tigereye key \u2014 dropped by stone warrior [CONFIRMED LAIR record]"
+    ]
+  },
+  "3268": {
+    "doors": [
+      {
+        "to": 3269,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#83)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3269": {
+    "doors": [
+      {
+        "to": 3268,
+        "dir": "down",
+        "locked": true,
+        "key": "tigereye key",
+        "door_type": "door (art#83)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "quartz key \u2014 dropped by stone warrior [CONFIRMED LAIR record]"
+    ]
+  },
+  "3289": {
+    "doors": [
+      {
+        "to": 3290,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#84)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3290": {
+    "doors": [
+      {
+        "to": 3289,
+        "dir": "down",
+        "locked": true,
+        "key": "quartz key",
+        "door_type": "door (art#84)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3200": {
+    "doors": [
+      {
+        "to": 3201,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "jade key \u2014 dropped by stone warrior [CONFIRMED LAIR record]"
+    ]
+  },
+  "3201": {
+    "doors": [
+      {
+        "to": 3200,
+        "dir": "down",
+        "locked": true,
+        "key": "stone key",
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3334": {
+    "doors": [
+      {
+        "to": 3335,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#48)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3335": {
+    "doors": [
+      {
+        "to": 3334,
+        "dir": "down",
+        "locked": true,
+        "key": "jade key",
+        "door_type": "door (art#48)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "tigereye key \u2014 dropped by stone warrior [CONFIRMED LAIR record]"
+    ]
+  },
+  "3364": {
+    "doors": [
+      {
+        "to": 3365,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#83)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3365": {
+    "doors": [
+      {
+        "to": 3364,
+        "dir": "down",
+        "locked": true,
+        "key": "tigereye key",
+        "door_type": "door (art#83)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "keydrops": [
+      "quartz key \u2014 dropped by stone warrior [CONFIRMED LAIR record]"
+    ]
+  },
+  "3392": {
+    "doors": [
+      {
+        "to": 3393,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#84)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3393": {
+    "doors": [
+      {
+        "to": 3392,
+        "dir": "down",
+        "locked": true,
+        "key": "quartz key",
+        "door_type": "door (art#84)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3661": {
+    "doors": [
+      {
+        "to": 3662,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3662": {
+    "doors": [
+      {
+        "to": 3661,
+        "dir": "n",
+        "locked": true,
+        "key": "stone key",
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3700": {
+    "doors": [
+      {
+        "to": 3721,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3721": {
+    "doors": [
+      {
+        "to": 3700,
+        "dir": "n",
+        "locked": true,
+        "key": "stone key",
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3681": {
+    "doors": [
+      {
+        "to": 3730,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3730": {
+    "doors": [
+      {
+        "to": 3681,
+        "dir": "n",
+        "locked": true,
+        "key": "stone key",
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3741": {
+    "doors": [
+      {
+        "to": 3742,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3742": {
+    "doors": [
+      {
+        "to": 3741,
+        "dir": "n",
+        "locked": true,
+        "key": "stone key",
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3725": {
+    "doors": [
+      {
+        "to": 3726,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3726": {
+    "doors": [
+      {
+        "to": 3725,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "traps": [
+      {
+        "effect": "trap",
+        "desc": "damage on entry [INFERRED: f2=1]",
+        "f2": 1,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG252]"
+      }
+    ]
+  },
+  "3750": {
+    "doors": [
+      {
+        "to": 3751,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3751": {
+    "doors": [
+      {
+        "to": 3750,
+        "dir": "n",
+        "locked": true,
+        "key": "stone key",
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3815": {
+    "doors": [
+      {
+        "to": 3821,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3821": {
+    "doors": [
+      {
+        "to": 3815,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "unknown lever (f2=14)",
+        "to": 3829,
+        "fail_to": 1843,
+        "note": "unknown lever (f2=14): success \u2192 room 3829; fail \u2192 room 1843 [TRIG256]",
+        "enabled": true
+      }
+    ]
+  },
+  "3829": {
+    "doors": [
+      {
+        "to": 3830,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3830": {
+    "doors": [
+      {
+        "to": 3829,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3838": {
+    "doors": [
+      {
+        "to": 3840,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3840": {
+    "doors": [
+      {
+        "to": 3838,
+        "dir": "n",
+        "locked": true,
+        "key": "stone key",
+        "door_type": "door (art#97)",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3881": {
+    "doors": [
+      {
+        "to": 3897,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3897": {
+    "doors": [
+      {
+        "to": 3881,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      },
+      {
+        "to": 3900,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "close jaws / say anything (f2=16)",
+        "to": null,
+        "fail_to": 1889,
+        "note": "close jaws / say anything (f2=16): success opens passage (stays in room); fail \u2192 room 1889 [TRIG265]",
+        "enabled": true
+      }
+    ]
+  },
+  "3900": {
+    "doors": [
+      {
+        "to": 3897,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG257]"
+      }
+    ]
+  },
+  "3898": {
+    "doors": [
+      {
+        "to": 3901,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      },
+      {
+        "to": 3890,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "close jaws / say anything (f2=16)",
+        "to": null,
+        "fail_to": 1889,
+        "note": "close jaws / say anything (f2=16): success opens passage (stays in room); fail \u2192 room 1889 [TRIG266]",
+        "enabled": true
+      }
+    ]
+  },
+  "3901": {
+    "doors": [
+      {
+        "to": 3898,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG258]"
+      }
+    ]
+  },
+  "3890": {
+    "doors": [
+      {
+        "to": 3898,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3863": {
+    "doors": [
+      {
+        "to": 3905,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3905": {
+    "doors": [
+      {
+        "to": 3863,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      },
+      {
+        "to": 3908,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "close jaws / say anything (f2=16)",
+        "to": null,
+        "fail_to": 1889,
+        "note": "close jaws / say anything (f2=16): success opens passage (stays in room); fail \u2192 room 1889 [TRIG267]",
+        "enabled": true
+      }
+    ]
+  },
+  "3908": {
+    "doors": [
+      {
+        "to": 3905,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG259]"
+      }
+    ]
+  },
+  "3906": {
+    "doors": [
+      {
+        "to": 3909,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      },
+      {
+        "to": 3854,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "close jaws / say anything (f2=16)",
+        "to": null,
+        "fail_to": 1889,
+        "note": "close jaws / say anything (f2=16): success opens passage (stays in room); fail \u2192 room 1889 [TRIG268]",
+        "enabled": true
+      }
+    ]
+  },
+  "3909": {
+    "doors": [
+      {
+        "to": 3906,
+        "dir": "n",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG260]"
+      }
+    ]
+  },
+  "3854": {
+    "doors": [
+      {
+        "to": 3906,
+        "dir": "s",
+        "locked": false,
+        "key": null,
+        "door_type": "unmarked door/wall",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ]
+  },
+  "3977": {
+    "doors": [
+      {
+        "to": 3978,
+        "dir": "up",
+        "locked": true,
+        "key": "Violet Rune",
+        "door_type": "rune-gated passage",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "runes": [
+      "requires Violet Rune [CONFIRMED DOOR71]"
+    ]
+  },
+  "3978": {
+    "doors": [
+      {
+        "to": 3977,
+        "dir": "down",
+        "locked": false,
+        "key": null,
+        "door_type": "rune-gated passage",
+        "enabled": true,
+        "source": "CONFIRMED [DOOR record]"
+      }
+    ],
+    "runes": [
+      "requires Violet Rune (return side) [CONFIRMED DOOR71]"
+    ]
+  },
+  "20": {
+    "traps": [
+      {
+        "effect": "minor trap",
+        "desc": "small damage on entry [INFERRED: f2=0]",
+        "f2": 0,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG1]"
+      }
+    ]
+  },
+  "74": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 179,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG2]"
+      }
+    ]
+  },
+  "75": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 180,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG3]"
+      }
+    ]
+  },
+  "105": {
+    "traps": [
+      {
+        "effect": "trap",
+        "desc": "damage on entry [INFERRED: f2=1]",
+        "f2": 1,
+        "f3": 2,
+        "source": "CONFIRMED [TRIG4]"
+      }
+    ]
+  },
+  "182": {
+    "runes": [
+      "White Rune room (CONFIRMED type-1 marker; f3=1)",
+      "gives White Rune [CONFIRMED TRIG6 type-1 marker; community SB21 dungeon3.html]"
+    ]
+  },
+  "484": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 485,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG7]"
+      }
+    ]
+  },
+  "486": {
+    "traps": [
+      {
+        "effect": "slash trap",
+        "desc": "slashing/poison damage [INFERRED: f2=3]",
+        "f2": 3,
+        "f3": 2,
+        "source": "CONFIRMED [TRIG8]"
+      }
+    ]
+  },
+  "497": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 498,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG9]"
+      }
+    ]
+  },
+  "498": {
+    "traps": [
+      {
+        "effect": "stone trap",
+        "desc": "stone/crush damage [INFERRED: f2=5, Flagstones area]",
+        "f2": 5,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG10]"
+      }
+    ]
+  },
+  "525": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 564,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG12]"
+      }
+    ]
+  },
+  "526": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 553,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG13]"
+      }
+    ]
+  },
+  "563": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 515,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG14]"
+      }
+    ]
+  },
+  "574": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 575,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG15]"
+      }
+    ]
+  },
+  "590": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 515,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG16]"
+      }
+    ]
+  },
+  "611": {
+    "traps": [
+      {
+        "effect": "slash trap",
+        "desc": "slashing/poison damage [INFERRED: f2=3]",
+        "f2": 3,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG17]"
+      }
+    ]
+  },
+  "612": {
+    "traps": [
+      {
+        "effect": "slash trap",
+        "desc": "slashing/poison damage [INFERRED: f2=3]",
+        "f2": 3,
+        "f3": 4,
+        "source": "CONFIRMED [TRIG18]"
+      }
+    ]
+  },
+  "619": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 618,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG19]"
+      }
+    ]
+  },
+  "622": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 656,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG20]"
+      }
+    ]
+  },
+  "627": {
+    "traps": [
+      {
+        "effect": "heavy trap",
+        "desc": "heavy damage \u2014 community notes up to 180 dmg in L3 [CONFIRMED f2=4 at room 181]",
+        "f2": 4,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG21]"
+      }
+    ]
+  },
+  "634": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 678,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG22]"
+      }
+    ]
+  },
+  "636": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 623,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG23]"
+      },
+      {
+        "trigger": "step",
+        "to": 623,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG24]"
+      }
+    ]
+  },
+  "641": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 662,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG25]"
+      }
+    ]
+  },
+  "642": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 671,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG26]"
+      }
+    ]
+  },
+  "652": {
+    "traps": [
+      {
+        "effect": "stone trap",
+        "desc": "stone/crush damage [INFERRED: f2=5, Flagstones area]",
+        "f2": 5,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG27]"
+      }
+    ]
+  },
+  "659": {
+    "traps": [
+      {
+        "effect": "stone trap",
+        "desc": "stone/crush damage [INFERRED: f2=5, Flagstones area]",
+        "f2": 5,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG28]"
+      }
+    ]
+  },
+  "682": {
+    "traps": [
+      {
+        "effect": "heavy trap",
+        "desc": "heavy damage \u2014 community notes up to 180 dmg in L3 [CONFIRMED f2=4 at room 181]",
+        "f2": 4,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG29]"
+      }
+    ]
+  },
+  "683": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 633,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG30]"
+      }
+    ]
+  },
+  "687": {
+    "traps": [
+      {
+        "effect": "slash trap",
+        "desc": "slashing/poison damage [INFERRED: f2=3]",
+        "f2": 3,
+        "f3": 4,
+        "source": "CONFIRMED [TRIG31]"
+      }
+    ]
+  },
+  "709": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 753,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG32]"
+      }
+    ]
+  },
+  "731": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 723,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG33]"
+      }
+    ]
+  },
+  "787": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 737,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG34]"
+      }
+    ]
+  },
+  "800": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 762,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG35]"
+      }
+    ]
+  },
+  "819": {
+    "traps": [
+      {
+        "effect": "stone trap",
+        "desc": "stone/crush damage [INFERRED: f2=5, Flagstones area]",
+        "f2": 5,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG36]"
+      }
+    ]
+  },
+  "825": {
+    "traps": [
+      {
+        "effect": "stone trap",
+        "desc": "stone/crush damage [INFERRED: f2=5, Flagstones area]",
+        "f2": 5,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG37]"
+      }
+    ]
+  },
+  "966": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 970,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG38]"
+      }
+    ]
+  },
+  "967": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 969,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG39]"
+      }
+    ]
+  },
+  "1080": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 1529,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG42]"
+      }
+    ]
+  },
+  "1213": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 1218,
+        "fail_to": 811,
+        "note": "pull lever: success \u2192 room 1218; fail \u2192 room 811 [TRIG44]",
+        "enabled": true
+      }
+    ]
+  },
+  "1218": {
+    "traps": [
+      {
+        "effect": "heavy trap",
+        "desc": "heavy damage \u2014 community notes up to 180 dmg in L3 [CONFIRMED f2=4 at room 181]",
+        "f2": 4,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG45]"
+      }
+    ]
+  },
+  "1231": {
+    "teleports": [
+      {
+        "trigger": "say cinders/ether (riddle)",
+        "to": 1232,
+        "fail_to": 1,
+        "note": "say cinders/ether (riddle): success \u2192 room 1232; fail \u2192 room 1 [TRIG46]",
+        "enabled": true
+      }
+    ]
+  },
+  "1232": {
+    "teleports": [
+      {
+        "trigger": "say cinders/ether (riddle)",
+        "to": 1236,
+        "fail_to": 1,
+        "note": "say cinders/ether (riddle): success \u2192 room 1236; fail \u2192 room 1 [TRIG47]",
+        "enabled": true
+      }
+    ]
+  },
+  "1243": {
+    "teleports": [
+      {
+        "trigger": "unknown word/lever (f2=4)",
+        "to": 1222,
+        "fail_to": 907,
+        "note": "unknown word/lever (f2=4): success \u2192 room 1222; fail \u2192 room 907 [TRIG48]",
+        "enabled": true
+      }
+    ]
+  },
+  "1266": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 1281,
+        "fail_to": 795,
+        "note": "pull lever: success \u2192 room 1281; fail \u2192 room 795 [TRIG49]",
+        "enabled": true
+      }
+    ]
+  },
+  "1281": {
+    "traps": [
+      {
+        "effect": "heavy trap",
+        "desc": "heavy damage \u2014 community notes up to 180 dmg in L3 [CONFIRMED f2=4 at room 181]",
+        "f2": 4,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG50]"
+      }
+    ]
+  },
+  "1297": {
+    "traps": [
+      {
+        "effect": "stone trap (lever-disarmable)",
+        "desc": "Stoneworks stone trap; pull lever in nearby room to disarm [CONFIRMED community]",
+        "f2": 6,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG52]"
+      }
+    ]
+  },
+  "1316": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 1297,
+        "fail_to": 829,
+        "note": "pull lever: success \u2192 room 1297; fail \u2192 room 829 [TRIG53]",
+        "enabled": true
+      }
+    ]
+  },
+  "1327": {
+    "traps": [
+      {
+        "effect": "stone trap (lever-disarmable)",
+        "desc": "Stoneworks stone trap; pull lever in nearby room to disarm [CONFIRMED community]",
+        "f2": 6,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG54]"
+      }
+    ]
+  },
+  "1344": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 1327,
+        "fail_to": 827,
+        "note": "pull lever: success \u2192 room 1327; fail \u2192 room 827 [TRIG55]",
+        "enabled": true
+      }
+    ]
+  },
+  "1366": {
+    "traps": [
+      {
+        "effect": "stone trap (lever-disarmable)",
+        "desc": "Stoneworks stone trap; pull lever in nearby room to disarm [CONFIRMED community]",
+        "f2": 6,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG56]"
+      }
+    ]
+  },
+  "1364": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 1366,
+        "fail_to": 803,
+        "note": "pull lever: success \u2192 room 1366; fail \u2192 room 803 [TRIG57]",
+        "enabled": true
+      }
+    ]
+  },
+  "1390": {
+    "traps": [
+      {
+        "effect": "stone trap (lever-disarmable)",
+        "desc": "Stoneworks stone trap; pull lever in nearby room to disarm [CONFIRMED community]",
+        "f2": 6,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG58]"
+      }
+    ]
+  },
+  "1404": {
+    "traps": [
+      {
+        "effect": "stone trap (lever-disarmable)",
+        "desc": "Stoneworks stone trap; pull lever in nearby room to disarm [CONFIRMED community]",
+        "f2": 6,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG59]"
+      }
+    ]
+  },
+  "1439": {
+    "traps": [
+      {
+        "effect": "stone trap (lever-disarmable)",
+        "desc": "Stoneworks stone trap; pull lever in nearby room to disarm [CONFIRMED community]",
+        "f2": 6,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG60]"
+      }
+    ]
+  },
+  "1403": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 1452,
+        "fail_to": 801,
+        "note": "pull lever: success \u2192 room 1452; fail \u2192 room 801 [TRIG61]",
+        "enabled": true
+      }
+    ]
+  },
+  "1440": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 1456,
+        "fail_to": 801,
+        "note": "pull lever: success \u2192 room 1456; fail \u2192 room 801 [TRIG62]",
+        "enabled": true
+      }
+    ]
+  },
+  "1519": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 1079,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG65]"
+      }
+    ]
+  },
+  "1534": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 1473,
+        "fail_to": 1519,
+        "note": "pull lever: success \u2192 room 1473; fail \u2192 room 1519 [TRIG67]",
+        "enabled": true
+      }
+    ]
+  },
+  "1731": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 1701,
+        "fail_to": 1523,
+        "note": "pull lever: success \u2192 room 1701; fail \u2192 room 1523 [TRIG68]",
+        "enabled": true
+      }
+    ]
+  },
+  "1808": {
+    "teleports": [
+      {
+        "trigger": "say cinders/ether (riddle)",
+        "to": 1564,
+        "fail_to": 1663,
+        "note": "say cinders/ether (riddle): success \u2192 room 1564; fail \u2192 room 1663 [TRIG69]",
+        "enabled": true
+      }
+    ],
+    "runes": [
+      "riddle room step 1 \u2014 say first answer (cinders) [INFERRED TRIG69 type-4]"
+    ]
+  },
+  "1912": {
+    "teleports": [
+      {
+        "trigger": "say cinders/ether (riddle)",
+        "to": 1764,
+        "fail_to": 1863,
+        "note": "say cinders/ether (riddle): success \u2192 room 1764; fail \u2192 room 1863 [TRIG70]",
+        "enabled": true
+      }
+    ],
+    "runes": [
+      "riddle room step 2 \u2014 say second answer (ether) [INFERRED TRIG70 type-4]"
+    ]
+  },
+  "1576": {
+    "teleports": [
+      {
+        "trigger": "push stone",
+        "to": null,
+        "fail_to": 1537,
+        "note": "push stone: success opens passage (stays in room); fail \u2192 room 1537 [TRIG71]",
+        "enabled": true
+      },
+      {
+        "trigger": "unknown trigger (f2=9)",
+        "to": 2101,
+        "fail_to": 1,
+        "note": "unknown trigger (f2=9) [DISABLED \u2014 f7=0] [TRIG72]",
+        "enabled": false
+      }
+    ]
+  },
+  "1681": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 1781,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG73]"
+      }
+    ]
+  },
+  "1733": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 1833,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG74]"
+      }
+    ]
+  },
+  "1751": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 1851,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG75]"
+      }
+    ]
+  },
+  "1880": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 1680,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG76]"
+      }
+    ]
+  },
+  "1900": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 1700,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG77]"
+      }
+    ]
+  },
+  "1911": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 1711,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG78]"
+      }
+    ]
+  },
+  "2100": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 1576,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG79]"
+      }
+    ]
+  },
+  "2101": {
+    "runes": [
+      "special room marker \u2014 Tunnels/post-Labyrinth gate [CONFIRMED type-1]"
+    ]
+  },
+  "2178": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": null,
+        "fail_to": 1579,
+        "note": "pull lever: success opens passage (stays in room); fail \u2192 room 1579 [TRIG81]",
+        "enabled": true
+      },
+      {
+        "trigger": "pull lever",
+        "to": 2204,
+        "fail_to": 1545,
+        "note": "pull lever [DISABLED \u2014 f7=0] [TRIG82]",
+        "enabled": false
+      }
+    ]
+  },
+  "2199": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": null,
+        "fail_to": 1579,
+        "note": "pull lever: success opens passage (stays in room); fail \u2192 room 1579 [TRIG83]",
+        "enabled": true
+      },
+      {
+        "trigger": "pull lever",
+        "to": 2208,
+        "fail_to": 1545,
+        "note": "pull lever [DISABLED \u2014 f7=0] [TRIG84]",
+        "enabled": false
+      }
+    ]
+  },
+  "2182": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": null,
+        "fail_to": 1577,
+        "note": "pull lever: success opens passage (stays in room); fail \u2192 room 1577 [TRIG85]",
+        "enabled": true
+      },
+      {
+        "trigger": "pull lever",
+        "to": 2214,
+        "fail_to": 1559,
+        "note": "pull lever [DISABLED \u2014 f7=0] [TRIG86]",
+        "enabled": false
+      }
+    ]
+  },
+  "2201": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": null,
+        "fail_to": 1581,
+        "note": "pull lever: success opens passage (stays in room); fail \u2192 room 1581 [TRIG87]",
+        "enabled": true
+      },
+      {
+        "trigger": "pull lever",
+        "to": 2219,
+        "fail_to": 1555,
+        "note": "pull lever [DISABLED \u2014 f7=0] [TRIG88]",
+        "enabled": false
+      }
+    ]
+  },
+  "2187": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": null,
+        "fail_to": 1579,
+        "note": "pull lever: success opens passage (stays in room); fail \u2192 room 1579 [TRIG89]",
+        "enabled": true
+      },
+      {
+        "trigger": "pull lever",
+        "to": 2225,
+        "fail_to": 1543,
+        "note": "pull lever [DISABLED \u2014 f7=0] [TRIG90]",
+        "enabled": false
+      }
+    ]
+  },
+  "2193": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": null,
+        "fail_to": 1579,
+        "note": "pull lever: success opens passage (stays in room); fail \u2192 room 1579 [TRIG91]",
+        "enabled": true
+      },
+      {
+        "trigger": "pull lever",
+        "to": 2191,
+        "fail_to": 1571,
+        "note": "pull lever [DISABLED \u2014 f7=0] [TRIG92]",
+        "enabled": false
+      }
+    ],
+    "keydrops": [
+      "tigereye key \u2014 dropped by flame giant warlord [CONFIRMED LAIR record]"
+    ]
+  },
+  "3122": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3100,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG95]"
+      },
+      {
+        "trigger": "step",
+        "to": 3100,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG108]"
+      }
+    ]
+  },
+  "3121": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 10,
+        "source": "CONFIRMED [TRIG97]"
+      }
+    ]
+  },
+  "3103": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG98]"
+      }
+    ]
+  },
+  "3104": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG99]"
+      }
+    ]
+  },
+  "3107": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG100]"
+      }
+    ]
+  },
+  "3108": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG101]"
+      }
+    ]
+  },
+  "3111": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG102]"
+      }
+    ]
+  },
+  "3112": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG103]"
+      }
+    ]
+  },
+  "3115": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG104]"
+      }
+    ]
+  },
+  "3116": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3123,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG105]"
+      }
+    ]
+  },
+  "3119": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG106]"
+      }
+    ]
+  },
+  "3120": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG107]"
+      }
+    ]
+  },
+  "3128": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG109]"
+      }
+    ]
+  },
+  "3134": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG110]"
+      }
+    ]
+  },
+  "3144": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG111]"
+      }
+    ]
+  },
+  "3150": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG112]"
+      }
+    ]
+  },
+  "3158": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG113]"
+      }
+    ]
+  },
+  "3166": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG114]"
+      }
+    ]
+  },
+  "3176": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG115]"
+      }
+    ]
+  },
+  "3184": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG116]"
+      }
+    ]
+  },
+  "3192": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG117]"
+      }
+    ]
+  },
+  "3126": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3131,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG118]"
+      },
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG157]"
+      }
+    ]
+  },
+  "3136": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3139,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG119]"
+      },
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG158]"
+      }
+    ]
+  },
+  "3152": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3155,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG120]"
+      },
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG160]"
+      }
+    ]
+  },
+  "3160": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3163,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG121]"
+      },
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG161]"
+      }
+    ]
+  },
+  "3168": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3171,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG122]"
+      },
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG162]"
+      }
+    ]
+  },
+  "3174": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3179,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG123]"
+      },
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG163]"
+      }
+    ]
+  },
+  "3182": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3187,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG124]"
+      },
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG164]"
+      }
+    ]
+  },
+  "3190": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3195,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG125]"
+      },
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG165]"
+      }
+    ]
+  },
+  "3198": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3098,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG126]"
+      }
+    ]
+  },
+  "3206": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG128]"
+      }
+    ]
+  },
+  "3208": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG129]"
+      }
+    ]
+  },
+  "3212": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG130]"
+      }
+    ]
+  },
+  "3214": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG131]"
+      }
+    ]
+  },
+  "3222": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG132]"
+      }
+    ]
+  },
+  "3230": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG133]"
+      }
+    ]
+  },
+  "3232": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG134]"
+      }
+    ]
+  },
+  "3236": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG135]"
+      }
+    ]
+  },
+  "3238": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG136]"
+      }
+    ]
+  },
+  "3247": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG137]"
+      }
+    ],
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG155]"
+      }
+    ]
+  },
+  "3255": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG138]"
+      }
+    ]
+  },
+  "3257": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG139]"
+      }
+    ]
+  },
+  "3261": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG140]"
+      }
+    ]
+  },
+  "3263": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG141]"
+      }
+    ]
+  },
+  "3276": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG142]"
+      }
+    ]
+  },
+  "3278": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG143]"
+      }
+    ]
+  },
+  "3282": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG144]"
+      }
+    ]
+  },
+  "3284": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG145]"
+      }
+    ]
+  },
+  "3207": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3256,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG146]"
+      }
+    ]
+  },
+  "3213": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3283,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG147]"
+      }
+    ]
+  },
+  "3233": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3209,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG148]"
+      }
+    ]
+  },
+  "3239": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3277,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG149]"
+      }
+    ]
+  },
+  "3258": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3237,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG150]"
+      }
+    ]
+  },
+  "3264": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3231,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG151]"
+      }
+    ]
+  },
+  "3279": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3262,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG152]"
+      }
+    ]
+  },
+  "3285": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3215,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG153]"
+      }
+    ]
+  },
+  "3223": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG154]"
+      }
+    ]
+  },
+  "3142": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3147,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG156]"
+      },
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG159]"
+      }
+    ]
+  },
+  "3123": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 3126,
+        "fail_to": 1731,
+        "note": "pull lever: success \u2192 room 3126; fail \u2192 room 1731 [TRIG166]",
+        "enabled": true
+      }
+    ]
+  },
+  "3131": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 3136,
+        "fail_to": 1727,
+        "note": "pull lever: success \u2192 room 3136; fail \u2192 room 1727 [TRIG167]",
+        "enabled": true
+      }
+    ]
+  },
+  "3139": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 3142,
+        "fail_to": 1731,
+        "note": "pull lever: success \u2192 room 3142; fail \u2192 room 1731 [TRIG168]",
+        "enabled": true
+      }
+    ]
+  },
+  "3147": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 3152,
+        "fail_to": 1727,
+        "note": "pull lever: success \u2192 room 3152; fail \u2192 room 1727 [TRIG169]",
+        "enabled": true
+      }
+    ]
+  },
+  "3155": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 3160,
+        "fail_to": 1727,
+        "note": "pull lever: success \u2192 room 3160; fail \u2192 room 1727 [TRIG170]",
+        "enabled": true
+      }
+    ]
+  },
+  "3163": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 3168,
+        "fail_to": 1727,
+        "note": "pull lever: success \u2192 room 3168; fail \u2192 room 1727 [TRIG171]",
+        "enabled": true
+      }
+    ]
+  },
+  "3171": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 3174,
+        "fail_to": 1731,
+        "note": "pull lever: success \u2192 room 3174; fail \u2192 room 1731 [TRIG172]",
+        "enabled": true
+      }
+    ]
+  },
+  "3179": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 3182,
+        "fail_to": 1731,
+        "note": "pull lever: success \u2192 room 3182; fail \u2192 room 1731 [TRIG173]",
+        "enabled": true
+      }
+    ]
+  },
+  "3187": {
+    "teleports": [
+      {
+        "trigger": "pull lever",
+        "to": 3190,
+        "fail_to": 1731,
+        "note": "pull lever: success \u2192 room 3190; fail \u2192 room 1731 [TRIG174]",
+        "enabled": true
+      }
+    ]
+  },
+  "3294": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG175]"
+      }
+    ]
+  },
+  "3296": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG176]"
+      }
+    ]
+  },
+  "3304": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG177]"
+      }
+    ]
+  },
+  "3310": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG178]"
+      }
+    ]
+  },
+  "3306": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG179]"
+      }
+    ]
+  },
+  "3312": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG180]"
+      }
+    ]
+  },
+  "3390": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG181]"
+      }
+    ]
+  },
+  "3388": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG182]"
+      }
+    ]
+  },
+  "3330": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG183]"
+      }
+    ]
+  },
+  "3332": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG184]"
+      }
+    ]
+  },
+  "3338": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG185]"
+      }
+    ]
+  },
+  "3380": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG186]"
+      }
+    ]
+  },
+  "3360": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG187]"
+      }
+    ]
+  },
+  "3362": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG188]"
+      }
+    ]
+  },
+  "3354": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG189]"
+      }
+    ]
+  },
+  "3413": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG190]"
+      }
+    ]
+  },
+  "3411": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG191]"
+      }
+    ]
+  },
+  "3322": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG192]"
+      }
+    ]
+  },
+  "3396": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG193]"
+      }
+    ]
+  },
+  "3405": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG194]"
+      }
+    ]
+  },
+  "3403": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG195]"
+      }
+    ]
+  },
+  "3374": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG196]"
+      }
+    ]
+  },
+  "3368": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG197]"
+      }
+    ]
+  },
+  "3348": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG198]"
+      }
+    ]
+  },
+  "3350": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG199]"
+      }
+    ]
+  },
+  "3344": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG200]"
+      }
+    ]
+  },
+  "3316": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG201]"
+      }
+    ]
+  },
+  "3370": {
+    "traps": [
+      {
+        "effect": "wall trap + poison",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage + cumulative poison [CONFIRMED community]",
+        "f2": 8,
+        "f3": 5,
+        "source": "CONFIRMED [TRIG202]"
+      }
+    ]
+  },
+  "3313": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3349,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG203]"
+      }
+    ]
+  },
+  "3307": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3371,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG204]"
+      }
+    ]
+  },
+  "3404": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3369,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG205]"
+      }
+    ]
+  },
+  "3317": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3351,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG206]"
+      }
+    ]
+  },
+  "3412": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG207]"
+      }
+    ]
+  },
+  "3414": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3121,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG208]"
+      }
+    ]
+  },
+  "3305": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3375,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG209]"
+      }
+    ]
+  },
+  "3311": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3345,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG210]"
+      }
+    ]
+  },
+  "3323": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3339,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG211]"
+      }
+    ]
+  },
+  "3397": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3381,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG212]"
+      }
+    ]
+  },
+  "3391": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3331,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG213]"
+      }
+    ]
+  },
+  "3389": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3333,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG214]"
+      }
+    ]
+  },
+  "3295": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3361,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG215]"
+      }
+    ]
+  },
+  "3297": {
+    "teleports": [
+      {
+        "trigger": "step",
+        "to": 3363,
+        "note": "one-way springboard/teleport [CONFIRMED TRIG216]"
+      }
+    ]
+  },
+  "3519": {
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG217]"
+      }
+    ]
+  },
+  "3523": {
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG218]"
+      }
+    ]
+  },
+  "3529": {
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG219]"
+      }
+    ]
+  },
+  "3533": {
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG220]"
+      }
+    ]
+  },
+  "3537": {
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG221]"
+      }
+    ]
+  },
+  "3541": {
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG222]"
+      }
+    ]
+  },
+  "3545": {
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG223]"
+      }
+    ]
+  },
+  "3549": {
+    "traps": [
+      {
+        "effect": "dark-level trap",
+        "desc": "trap active in dark zone [INFERRED: f2=9, Dwarven Forest/SP dark levels]",
+        "f2": 9,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG224]"
+      }
+    ]
+  },
+  "3553": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG225]"
+      }
+    ]
+  },
+  "3557": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG226]"
+      }
+    ]
+  },
+  "3561": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG227]"
+      }
+    ]
+  },
+  "3565": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG228]"
+      }
+    ]
+  },
+  "3569": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG229]"
+      }
+    ]
+  },
+  "3573": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG230]"
+      }
+    ]
+  },
+  "3577": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG231]"
+      }
+    ]
+  },
+  "3581": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG232]"
+      }
+    ]
+  },
+  "3585": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG233]"
+      }
+    ]
+  },
+  "3589": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG234]"
+      }
+    ]
+  },
+  "3593": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG235]"
+      }
+    ]
+  },
+  "3597": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG236]"
+      }
+    ]
+  },
+  "3654": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG237]"
+      }
+    ]
+  },
+  "3602": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG238]"
+      }
+    ]
+  },
+  "3606": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG239]"
+      }
+    ]
+  },
+  "3610": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG240]"
+      }
+    ]
+  },
+  "3614": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG241]"
+      }
+    ]
+  },
+  "3618": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG242]"
+      }
+    ]
+  },
+  "3622": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG243]"
+      }
+    ]
+  },
+  "3626": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG244]"
+      }
+    ]
+  },
+  "3630": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG245]"
+      }
+    ]
+  },
+  "3634": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG246]"
+      }
+    ]
+  },
+  "3638": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG247]"
+      }
+    ]
+  },
+  "3642": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG248]"
+      }
+    ]
+  },
+  "3646": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG249]"
+      }
+    ]
+  },
+  "3650": {
+    "traps": [
+      {
+        "effect": "wall trap",
+        "desc": "Stone Passages wall trap, 500\u2013600 damage [CONFIRMED community]",
+        "f2": 7,
+        "f3": 0,
+        "source": "CONFIRMED [TRIG250]"
+      }
+    ]
+  },
+  "3100": {
+    "teleports": [
+      {
+        "trigger": "unknown lever (f2=12)",
+        "to": 3123,
+        "fail_to": 3194,
+        "note": "unknown lever (f2=12): success \u2192 room 3123; fail \u2192 room 3194 [TRIG251]",
+        "enabled": true
+      }
+    ]
+  },
+  "3734": {
+    "teleports": [
+      {
+        "trigger": "lower arm / turn sceptre (f2=13)",
+        "to": 3725,
+        "fail_to": 1857,
+        "note": "lower arm / turn sceptre (f2=13): success \u2192 room 3725; fail \u2192 room 1857 [TRIG253]",
+        "enabled": true
+      }
+    ],
+    "keydrops": [
+      "stone key \u2014 dropped by dwarven captain [CONFIRMED LAIR record]"
+    ]
+  },
+  "3813": {
+    "teleports": [
+      {
+        "trigger": "lower arm / turn sceptre (f2=13)",
+        "to": 3815,
+        "fail_to": 1865,
+        "note": "lower arm / turn sceptre (f2=13): success \u2192 room 3815; fail \u2192 room 1865 [TRIG254]",
+        "enabled": true
+      }
+    ]
+  },
+  "3896": {
+    "teleports": [
+      {
+        "trigger": "unknown (f2=15)",
+        "to": 3881,
+        "fail_to": 1787,
+        "note": "unknown (f2=15): success \u2192 room 3881; fail \u2192 room 1787 [TRIG261]",
+        "enabled": true
+      }
+    ]
+  },
+  "3899": {
+    "teleports": [
+      {
+        "trigger": "unknown (f2=15)",
+        "to": 3890,
+        "fail_to": 1787,
+        "note": "unknown (f2=15): success \u2192 room 3890; fail \u2192 room 1787 [TRIG262]",
+        "enabled": true
+      }
+    ]
+  },
+  "3904": {
+    "teleports": [
+      {
+        "trigger": "unknown (f2=15)",
+        "to": 3863,
+        "fail_to": 1787,
+        "note": "unknown (f2=15): success \u2192 room 3863; fail \u2192 room 1787 [TRIG263]",
+        "enabled": true
+      }
+    ]
+  },
+  "3907": {
+    "teleports": [
+      {
+        "trigger": "unknown (f2=15)",
+        "to": 3854,
+        "fail_to": 1787,
+        "note": "unknown (f2=15): success \u2192 room 3854; fail \u2192 room 1787 [TRIG264]",
+        "enabled": true
+      }
+    ]
+  },
+  "4": {
+    "keydrops": [
+      "iron key \u2014 dropped by female cyclops [CONFIRMED LAIR record]"
+    ]
+  },
+  "55": {
+    "keydrops": [
+      "silver key \u2014 dropped by cyclops [CONFIRMED LAIR record]"
+    ]
+  },
+  "496": {
+    "keydrops": [
+      "pearl key \u2014 dropped by stone giant [CONFIRMED LAIR record]"
+    ]
+  },
+  "865": {
+    "keydrops": [
+      "ruby key \u2014 dropped by anaconda [CONFIRMED LAIR record]"
+    ]
+  },
+  "928": {
+    "keydrops": [
+      "onyx key \u2014 dropped by troll [CONFIRMED LAIR record]"
+    ]
+  },
+  "937": {
+    "keydrops": [
+      "jade key \u2014 dropped by skeleton lord [CONFIRMED LAIR record]"
+    ]
+  },
+  "958": {
+    "keydrops": [
+      "platinum key \u2014 dropped by ogre mage [CONFIRMED LAIR record]"
+    ]
+  },
+  "989": {
+    "keydrops": [
+      "pearl key \u2014 dropped by hydra [CONFIRMED LAIR record]"
+    ]
+  },
+  "2143": {
+    "keydrops": [
+      "opal key \u2014 dropped by flame giant warlord [CONFIRMED LAIR record]"
+    ]
+  },
+  "2809": {
+    "runes": [
+      "Violet Rune \u2014 defeat Demon King (drops rod of power); use rod of power to receive rune [CONFIRMED LAIR199 + community SB21 cavernsa.html]"
+    ],
+    "keydrops": [
+      "rod of power \u2014 dropped by demon king [CONFIRMED LAIR record]"
+    ]
+  },
+  "3291": {
+    "keydrops": [
+      "jade key \u2014 dropped by stone warrior [CONFIRMED LAIR record]"
+    ]
+  },
+  "3660": {
+    "keydrops": [
+      "stone key \u2014 dropped by dwarven guard [CONFIRMED LAIR record]"
+    ]
+  },
+  "3715": {
+    "keydrops": [
+      "stone key \u2014 dropped by dwarven captain [CONFIRMED LAIR record]"
+    ]
+  },
+  "3717": {
+    "keydrops": [
+      "stone key \u2014 dropped by dwarven captain [CONFIRMED LAIR record]"
+    ]
+  },
+  "3749": {
+    "keydrops": [
+      "stone key \u2014 dropped by dwarven guard [CONFIRMED LAIR record]"
+    ]
+  },
+  "3893": {
+    "keydrops": [
+      "stone key \u2014 dropped by dwarven guard [CONFIRMED LAIR record]"
+    ]
+  },
+  "3902": {
+    "keydrops": [
+      "dwarven battleax \u2014 dropped by master smith [CONFIRMED LAIR record]"
+    ]
+  },
+  "3903": {
+    "keydrops": [
+      "dwarven scalemail \u2014 dropped by master smith [CONFIRMED LAIR record]"
+    ]
+  },
+  "3910": {
+    "keydrops": [
+      "ice crystal \u2014 dropped by dwarven archmage [CONFIRMED LAIR record]"
+    ]
+  },
+  "3911": {
+    "keydrops": [
+      "flame crystal \u2014 dropped by dwarven archmage [CONFIRMED LAIR record]"
+    ]
+  },
+  "1564": {
+    "runes": [
+      "Blue Rune area \u2014 reached after riddle room (say cinders/ether) [INFERRED from TRIG69/70 f4=1564; community SB21 labyrinth4.html]"
+    ]
+  }
+}
