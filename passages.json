@@ -26,7 +26,7 @@
     "method": "sewer-passage",
     "cost": "100 silvers",
     "command": "BUY PASSAGE",
-    "to_zone": "Sewers",
+    "to_zone": "The Sewers",
     "note": "BUY PASSAGE ('b passage', 100 silvers) at the Town 2 path room enters Sewers Level 1. White Rune required (SB21: 'White Rune needed'). Return trip (room 844 UP to -81) is free — no BUY PASSAGE required going up. Currently in ta-rooms.json as a plain DOWN exit on room -81; the exit is MISLABELED (it represents paid passage, not a staircase).",
     "source": "CONFIRMED"
   }
