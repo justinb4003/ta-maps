@@ -1,0 +1,32 @@
+{
+  "_note": "Placeholder sample — replaced by ta-rooms.json once the extraction finishes.",
+  "areas": [
+    { "name": "Surface Town (sample)", "rooms": [-99,-98,-97,-96,-95,-94,-93,-92,-91,-90,-89] }
+  ],
+  "rooms": {
+    "-99": { "id": -99, "name": "north plaza", "area": "Surface Town (sample)",
+      "desc": "The north end of a large open plaza ringed with shade trees.",
+      "exits": { "n": -92, "s": -90, "w": -95, "e": -96, "ne": -98, "nw": -97 } },
+    "-92": { "id": -92, "name": "town guild hall", "area": "Surface Town (sample)",
+      "desc": "Banners of the adventurers' guild hang from the rafters.", "exits": { "s": -99 } },
+    "-95": { "id": -95, "name": "temple", "area": "Surface Town (sample)",
+      "desc": "An ornate temple of brass and stone.", "exits": { "e": -99 } },
+    "-96": { "id": -96, "name": "tavern", "area": "Surface Town (sample)",
+      "desc": "A dim, smoky little tavern.", "exits": { "w": -99 } },
+    "-98": { "id": -98, "name": "the arena", "area": "Surface Town (sample)",
+      "desc": "Huge wrought-iron gates open onto the arena sands.", "exits": { "sw": -99 } },
+    "-97": { "id": -97, "name": "equipment shop", "area": "Surface Town (sample)", "shop": "equipment",
+      "desc": "Packs, torches, and oddments line the shelves.", "exits": { "se": -99 } },
+    "-90": { "id": -90, "name": "south plaza", "area": "Surface Town (sample)",
+      "desc": "The south half of the plaza.", "exits": { "n": -99, "w": -93, "e": -94, "s": -91, "sw": -89 } },
+    "-93": { "id": -93, "name": "armor shop", "area": "Surface Town (sample)", "shop": "armor",
+      "desc": "Racks of mail and leather.", "exits": { "e": -90 } },
+    "-94": { "id": -94, "name": "weapon shop", "area": "Surface Town (sample)", "shop": "weapon",
+      "desc": "Blades and hafts gleam on the walls.", "exits": { "w": -90 } },
+    "-91": { "id": -91, "name": "magic shop", "area": "Surface Town (sample)", "shop": "magic",
+      "desc": "A shrewd mage in crimson robes tends shelves of stones and potions.", "exits": { "n": -90 } },
+    "-89": { "id": -89, "name": "dungeon entrance", "area": "Surface Town (sample)",
+      "desc": "A dark stair descends beneath the town.", "monsters": ["huge rat","kobold"],
+      "exits": { "ne": -90, "down": 1 } }
+  }
+}

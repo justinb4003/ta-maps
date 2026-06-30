@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tele-Arena Atlas — interactive maps of the world of TA 5.6d</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>T E L E - A R E N A &nbsp;·&nbsp; A T L A S</h1>
+  <p class="sub">Interactive maps of Tele-Arena 5.6d, rebuilt from the original module data.
+     <span class="hint">Hover any room to reveal its hidden room&nbsp;number.</span></p>
+</header>
+
+<nav id="areas" aria-label="Areas">Loading areas…</nav>
+
+<main>
+  <section id="map-wrap">
+    <div id="map" aria-live="polite"></div>
+  </section>
+  <aside id="detail">
+    <div class="placeholder">Hover or click a room to inspect it.</div>
+  </aside>
+</main>
+
+<footer>
+  <span id="legend"></span>
+  <span class="credit">Data reverse-engineered from <code>TSGARN.DLL</code> / module files.
+    Map for <a href="https://github.com/justinb4003/ta-maps">justinb4003/ta-maps</a>.</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
