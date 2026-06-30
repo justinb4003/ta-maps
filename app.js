@@ -61,6 +61,75 @@ function doorBetween(a, b){
 }
 const stripSrc = s => String(s).replace(/\s*\[[^\]]*\]\s*$/, "").trim();
 
+/* ---- cross-zone navigation: find every transition that leaves the zone ---- */
+const ARROW = {n:"↑",s:"↓",e:"→",w:"←",ne:"↗",nw:"↖",se:"↘",sw:"↙",up:"↑",down:"↓"};
+function crossZoneLinks(ids){
+  const out = [], seen = new Set();
+  const push = (fromId, toId, dir, kind, trigger) => {
+    const tr = DB.rooms[toId];
+    if (!tr || !tr.area || tr.area === CUR) return;        // same zone -> not a portal
+    const k = fromId + ">" + toId;
+    if (seen.has(k)) return; seen.add(k);
+    out.push({ fromId: Number(fromId), toId: Number(toId), dir, kind, trigger, zone: tr.area });
+  };
+  for (const id of ids){
+    const room = DB.rooms[id]; if (!room) continue;
+    const ex = room.exits || {};
+    for (const d of [...Object.keys(DIR), "up", "down"]) if (ex[d]) push(id, ex[d], d, "exit");
+    const an = ANN[id] || {};
+    for (const dr of (an.doors || [])) push(id, dr.to, dr.dir, "door");
+    for (const t of (an.teleports || [])){
+      if (t.to) push(id, t.to, null, "tele", t.trigger);
+      else if (t.fail_to) push(id, t.fail_to, null, "tele", (t.trigger || "go") + " fail");
+    }
+  }
+  return out;
+}
+// bias chips to the right (horizontal exits) or below (vertical/teleport) so they
+// never clip past the map's top/left origin; the arrow in the label shows true direction
+const sideOf = d => ["e","ne","se","w","nw","sw"].includes(d) ? "e" : "s";
+function linkLabel(l){
+  if (l.kind === "tele") return `✦ ${l.trigger || "teleport"} → ${l.zone}`;
+  if (l.dir === "up")   return `↑ up to ${l.zone}`;
+  if (l.dir === "down") return `↓ down to ${l.zone}`;
+  return `${ARROW[l.dir] || "→"} ${l.zone}${l.kind === "door" ? " (door)" : ""}`;
+}
+const abbr = z => String(z).replace(/\bLevel (\d)/g, "L$1");
+function chipLabel(l){
+  if (l.kind === "tele") return `✦ ${l.trigger || "go"}→${abbr(l.zone)}`;
+  const ar = l.dir === "up" ? "↑" : l.dir === "down" ? "↓" : (ARROW[l.dir] || "→");
+  return `${ar} ${abbr(l.zone)}`;
+}
+function hiList(ids, on){
+  for (const id of ids){
+    const c = document.querySelector(`.room[data-id="${id}"]`);
+    if (c) c.classList.toggle("portal-hi", !!on);
+  }
+}
+function renderPortals(links){
+  let box = document.getElementById("portals");
+  if (!box){ box = document.createElement("div"); box.id = "portals";
+    document.getElementById("map-wrap").appendChild(box); }
+  if (!links.length){ box.style.display = "none"; box.innerHTML = ""; return; }
+  box.style.display = "block";
+  // group identical transitions (e.g. 13 springboards -> Stone Passages L1) with a count
+  const groups = new Map();
+  for (const l of links){
+    const lab = linkLabel(l);
+    if (!groups.has(lab)) groups.set(lab, { label: lab, zone: l.zone, toId: l.toId, from: [l.fromId] });
+    else groups.get(lab).from.push(l.fromId);
+  }
+  const items = [...groups.values()].sort((a,b) => a.zone.localeCompare(b.zone));
+  box.innerHTML = `<b>↗ exits to other areas</b>` + items.map(g => {
+    const tail = g.from.length === 1
+      ? `<span class="pfrom"> · from ${esc(clean((DB.rooms[g.from[0]]||{}).name))}</span>`
+      : ` <span class="pcount">×${g.from.length}</span>`;
+    return `<a href="#" class="portal-link" onclick="gotoRoom(${g.toId});return false;" ` +
+      `onmouseenter="hiList([${g.from}],1)" onmouseleave="hiList([${g.from}],0)">` +
+      `${esc(g.label)}${tail}</a>`;
+  }).join("");
+}
+
 async function boot(){
   DB = await loadData();
   ANN = await loadAnn();
@@ -216,6 +285,39 @@ function layoutAndRender(ids){
     cell.onmouseenter = () => showDetail(id);
     cell.onclick = () => { document.querySelectorAll(".room.sel").forEach(e=>e.classList.remove("sel")); cell.classList.add("sel"); showDetail(id); };
     map.appendChild(cell);
+  }
+
+  // cross-zone transitions: docked list (full, grouped) + inline labelled chips
+  const links = crossZoneLinks(ids);
+  renderPortals(links);
+  // outline every transition room…
+  for (const l of links){
+    const c = document.querySelector(`.room[data-id="${l.fromId}"]`);
+    if (c) c.classList.add("portal-room");
+  }
+  // …but place only one chip per distinct destination so repeats (e.g. 19 identical
+  // springboards) don't pile up on the map; the docked list carries the full count.
+  const seenChip = new Set();
+  const byFrom = {};
+  for (const l of links){
+    const lab = chipLabel(l);
+    if (seenChip.has(lab)) continue;
+    seenChip.add(lab);
+    (byFrom[l.fromId] ||= []).push(l);
+  }
+  for (const fromId in byFrom){
+    const cell = document.querySelector(`.room[data-id="${fromId}"]`);
+    if (!cell) continue;
+    byFrom[fromId].forEach((l, i) => {
+      const chip = document.createElement("a");
+      chip.href = "#";
+      chip.className = "portal side-" + sideOf(l.dir);
+      chip.style.setProperty("--i", i);
+      chip.textContent = chipLabel(l);
+      chip.title = linkLabel(l) + ` (room #${l.toId})`;
+      chip.onclick = e => { e.preventDefault(); e.stopPropagation(); gotoRoom(l.toId); };
+      cell.appendChild(chip);
+    });
   }
 }
 

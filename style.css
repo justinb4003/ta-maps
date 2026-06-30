@@ -14,6 +14,7 @@ body{
   background:var(--bg); color:var(--fg);
   font-family:"DejaVu Sans Mono","Px437 IBM VGA8","Consolas","Courier New",monospace;
   font-size:15px; line-height:1.25;
+  display:flex; flex-direction:column;
 }
 a{color:var(--c-lcyan)} a:hover{color:var(--c-lgreen)}
 code{color:var(--amber)}
@@ -34,7 +35,7 @@ nav#areas button{
 nav#areas button:hover{border-color:var(--c-lcyan); color:var(--c-white)}
 nav#areas button.active{background:var(--c-blue); color:var(--c-white); border-color:var(--c-lblue)}
 
-main{display:flex; gap:0; height:calc(100% - 132px)}
+main{display:flex; gap:0; flex:1; min-height:0}
 #map-wrap{flex:1; position:relative; overflow:hidden}
 #map-scroll{position:absolute; inset:0; overflow:auto; padding:1rem}
 /* per-zone monster legend, pinned in the corner of the map */
@@ -70,6 +71,33 @@ main{display:flex; gap:0; height:calc(100% - 132px)}
 /* doors drawn on the corridor between two rooms */
 .link.door{ color:var(--c-brown); font-weight:bold }
 .link.door.locked{ color:var(--c-lred) }
+
+/* ---- cross-zone portals ---- */
+/* docked list of every way out of this zone, pinned bottom-left of the map */
+#portals{
+  position:absolute; left:.6rem; bottom:.6rem; max-width:300px; max-height:48%;
+  overflow:auto; background:rgba(0,0,0,.9); border:1px solid var(--c-lgreen);
+  padding:.35rem .55rem; font-size:.76rem; line-height:1.5; z-index:5;
+}
+#portals b{ color:var(--c-lgreen); display:block; margin-bottom:.2rem }
+#portals .portal-link{ display:block; color:var(--c-lcyan); text-decoration:none; white-space:nowrap }
+#portals .portal-link:hover{ color:var(--c-white); background:#123 }
+#portals .pfrom{ color:var(--c-dgray) }
+#portals .pcount{ color:var(--amber); font-weight:bold }
+/* transition rooms + inline labelled chips */
+.room.portal-room{ outline:1px dashed var(--c-green) }
+.room.portal-hi{ outline:2px solid var(--c-lgreen) !important; z-index:4 }
+.portal{
+  position:absolute; white-space:nowrap; z-index:6; cursor:pointer;
+  font-size:.6rem; line-height:1.15; padding:0 3px; pointer-events:auto;
+  background:#04250b; color:var(--c-lgreen); border:1px solid var(--c-lgreen);
+  border-radius:3px; text-decoration:none; box-shadow:0 0 3px #000;
+}
+.portal:hover{ background:var(--c-lgreen); color:#000; z-index:7 }
+.portal.side-e{ left:calc(100% + 4px); top:50%; transform:translateY(-50%) translateY(calc(var(--i,0)*1.2rem)); }
+.portal.side-w{ right:calc(100% + 4px); top:50%; transform:translateY(-50%) translateY(calc(var(--i,0)*1.2rem)); }
+.portal.side-n{ bottom:calc(100% + 4px); left:50%; transform:translateX(-50%) translateY(calc(var(--i,0)*-1.2rem)); }
+.portal.side-s{ top:calc(100% + 4px); left:50%; transform:translateX(-50%) translateY(calc(var(--i,0)*1.2rem)); }
 /* room-type tints */
 .t-shop{color:var(--c-yellow)} .t-temple{color:var(--c-lcyan)} .t-guild{color:var(--c-lmag)}
 .t-arena{color:var(--c-lred)} .t-plaza{color:var(--c-lgreen)} .t-monster{color:var(--c-lred)}
