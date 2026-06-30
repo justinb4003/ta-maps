@@ -51,6 +51,13 @@ main{display:flex; gap:0; height:calc(100% - 132px)}
 .t-shop{color:var(--c-yellow)} .t-temple{color:var(--c-lcyan)} .t-guild{color:var(--c-lmag)}
 .t-arena{color:var(--c-lred)} .t-plaza{color:var(--c-lgreen)} .t-monster{color:var(--c-lred)}
 .t-door{color:var(--c-brown)}
+/* stair marker (up/down exits) — visible without hovering */
+.room .stair{
+  position:absolute; top:-4px; right:-3px; font-size:.7rem; line-height:1;
+  font-style:normal; color:#000; background:var(--amber); border-radius:2px;
+  padding:0 1px; pointer-events:none; z-index:3;
+}
+.room:hover .stair{ background:var(--c-white) }
 /* corridor glyphs sit in the gaps */
 .link{color:var(--c-dgray); text-align:center}
 /* hover reveal bubble */

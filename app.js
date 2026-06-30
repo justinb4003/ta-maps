@@ -69,7 +69,7 @@ function renderLegend(){
   document.getElementById("legend").innerHTML = seen.map(l => {
     const t = TYPE.find(([,v]) => v.l === l)[1];
     return `<span class="${t.c}">${t.g} ${l}</span>`;
-  }).join("");
+  }).join("") + `<span style="color:var(--amber)">↕ stairs</span>`;
 }
 
 function selectArea(name){
@@ -141,8 +141,10 @@ function layoutAndRender(ids){
     const cell = document.createElement("div");
     cell.className = "room " + t.c;
     cell.style.gridColumn = gx(c); cell.style.gridRow = gy(r);
-    const ud = ((room.exits||{}).up?"↑":"")+((room.exits||{}).down?"↓":"");
-    cell.innerHTML = `${t.g}<span class="num">#${id} ${esc(clean(room.name))}${ud}</span>`;
+    const ex0 = room.exits || {};
+    const sd = (ex0.up && ex0.down) ? "↕" : ex0.up ? "↑" : ex0.down ? "↓" : "";
+    const badge = sd ? `<i class="stair">${sd}</i>` : "";
+    cell.innerHTML = `${t.g}${badge}<span class="num">#${id} ${esc(clean(room.name))}${sd}</span>`;
     cell.onmouseenter = () => showDetail(id);
     cell.onclick = () => { document.querySelectorAll(".room.sel").forEach(e=>e.classList.remove("sel")); cell.classList.add("sel"); showDetail(id); };
     map.appendChild(cell);
