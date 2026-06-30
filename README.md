@@ -8,14 +8,18 @@ door game, module `TSGARN`), rebuilt straight from the original module data.
 ## What this is
 
 Every room, exit, shop and monster lair was extracted from the original game module —
-**4,139 rooms across 41 zones** (4 towns + 37 physical dungeon zones, from the entrance
-caves down through the labyrinth, swamp, desert and volcano), connected by a
-**99.6%-reciprocal exit graph**. The browser lays those rooms out on a grid from their
-exits and draws them in a retro DOS/ANSI style.
+**4,139 rooms across 41 zones** carrying their canonical names (Dungeon Level 1–3,
+Mountains, Forest, Swamp, Sewers, Tower, Stoneworks, The Labyrinth, Hewn Granite
+Corridors, Orc Caves, Stone Passages, the Dwarven Forest…). The browser lays those rooms
+out on a grid from their exits and draws them in a retro DOS/ANSI style.
 
-Room data (names + exits) was verified room-by-room against the live game engine — a bot
-teleported to each room and compared what the engine reported. Zones are grouped by
-physical area (contiguous room-id range), not difficulty tier.
+**How it's verified:** room data (names + exits) was checked room-by-room against the live
+game engine — a bot teleported to each room and compared what the engine reported — and
+the zone layout was reconciled against the published StarBase 21 community maps. This
+module is the larger **5.6f / addon-merged** build (4,139 rooms; community stock 5.6d is
+3,097), so it includes addon content like the expanded Labyrinth, Stone Passages and the
+Dwarven Forest. Section-to-section progression in-game runs through rune gates and
+teleports, which is why some zones are reached by magic words rather than walkable stairs.
 
 **Hover any room to reveal its hidden room number** — the thing the old hand-drawn maps
 never showed you. Click a room to inspect its full description, exits, shops and monsters.
