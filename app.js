@@ -22,6 +22,29 @@ const TYPE = [ // [match(room) -> {glyph, cls, label}] first match wins
 const typeOf = r => (TYPE.find(([m]) => m(r)) || TYPE[TYPE.length-1])[1];
 
 let DB = { rooms:{}, areas:[] };
+let CUR = null;                       // current area name
+
+// assign each distinct monster in a zone a short 1-2 char code for the map legend
+function monsterCodes(ids){
+  const names = [];
+  for (const id of ids)
+    for (const m of (DB.rooms[id].monsters || []))
+      if (!names.includes(m)) names.push(m);
+  const codes = {}, used = new Set();
+  for (const nm of names){
+    const w = nm.split(/\s+/);
+    const cands = [
+      nm[0].toUpperCase(),
+      (nm[0] + (nm[1] || "")).replace(/^./, c => c.toUpperCase()),       // First+second
+      w.length > 1 ? (w[0][0] + w[1][0]).toUpperCase() : null,           // initials
+      nm.slice(0, 2).toUpperCase(),
+    ].filter(Boolean);
+    let code = cands.find(c => !used.has(c));
+    if (!code){ let i = 2; do { code = nm[0].toUpperCase() + i++; } while (used.has(code)); }
+    used.add(code); codes[nm] = code;
+  }
+  return codes;
+}
 
 async function boot(){
   DB = await loadData();
@@ -73,6 +96,7 @@ function renderLegend(){
 }
 
 function selectArea(name){
+  CUR = name;
   if (decodeURIComponent(location.hash.slice(1)) !== name) location.hash = encodeURIComponent(name);
   document.querySelectorAll("#areas button").forEach(b =>
     b.classList.toggle("active", b.dataset.area === name));
@@ -135,27 +159,65 @@ function layoutAndRender(ids){
       map.appendChild(cell);
     }
   }
+  // monster codes for this zone + corner legend
+  const codes = monsterCodes(ids);
+  renderMonLegend(codes);
+
   // rooms on top
   for (const [id,[c,r]] of pos){
-    const room = DB.rooms[id]; const t = typeOf(room);
+    const room = DB.rooms[id];
+    let glyph, cls;
+    if (room.shop){ glyph = "$"; cls = "t-shop"; }
+    else if (room.monsters && room.monsters.length && codes[room.monsters[0]]){
+      glyph = codes[room.monsters[0]]; cls = "t-monster";
+    } else { const t = typeOf(room); glyph = t.g; cls = t.c; }
     const cell = document.createElement("div");
-    cell.className = "room " + t.c;
+    cell.className = "room " + cls + (glyph.length > 1 ? " code2" : "");
+    cell.dataset.id = id;
     cell.style.gridColumn = gx(c); cell.style.gridRow = gy(r);
     const ex0 = room.exits || {};
     const sd = (ex0.up && ex0.down) ? "↕" : ex0.up ? "↑" : ex0.down ? "↓" : "";
     const badge = sd ? `<i class="stair">${sd}</i>` : "";
-    cell.innerHTML = `${t.g}${badge}<span class="num">#${id} ${esc(clean(room.name))}${sd}</span>`;
+    cell.innerHTML = `${esc(glyph)}${badge}<span class="num">#${id} ${esc(clean(room.name))}${sd}</span>`;
     cell.onmouseenter = () => showDetail(id);
     cell.onclick = () => { document.querySelectorAll(".room.sel").forEach(e=>e.classList.remove("sel")); cell.classList.add("sel"); showDetail(id); };
     map.appendChild(cell);
   }
 }
 
+function renderMonLegend(codes){
+  const box = document.getElementById("mlegend");
+  const entries = Object.entries(codes).sort((a,b) => a[1].localeCompare(b[1]));
+  if (!entries.length){ box.style.display = "none"; box.innerHTML = ""; return; }
+  box.style.display = "block";
+  box.innerHTML = "<b>monsters here</b><br>" + entries
+    .map(([nm, code]) => `<span class="t-monster">${code}</span> ${esc(nm)}`).join("<br>");
+}
+
+// navigate to a room, switching zones if needed (used by clickable exits)
+function gotoRoom(id){
+  const r = DB.rooms[id]; if (!r) return;
+  if (r.area !== CUR) selectArea(r.area);
+  requestAnimationFrame(() => {
+    const cell = document.querySelector(`.room[data-id="${id}"]`);
+    if (cell){
+      document.querySelectorAll(".room.sel").forEach(e => e.classList.remove("sel"));
+      cell.classList.add("sel");
+      cell.scrollIntoView({ block:"center", inline:"center" });
+    }
+    showDetail(id);
+  });
+}
+
 function showDetail(id){
   const r = DB.rooms[id]; if (!r) return;
   const ex = r.exits||{};
   const exits = Object.keys(DIR).concat(["up","down"]).filter(d=>ex[d])
-    .map(d => `${d.toUpperCase()}→#${ex[d]} ${esc(clean((DB.rooms[ex[d]]||{}).name)||"?")}`).join("<br>") || "—";
+    .map(d => {
+      const t = ex[d], tr = DB.rooms[t] || {};
+      const xz = tr.area && tr.area !== r.area ? ` <span class="xz">→ ${esc(tr.area)}</span>` : "";
+      return `<a href="#" class="exlink" onclick="gotoRoom(${t});return false;">${d.toUpperCase()}→#${t} ${esc(clean(tr.name) || "?")}</a>${xz}`;
+    }).join("<br>") || "—";
   document.getElementById("detail").innerHTML = `
     <h2><span class="rid">#${id}</span> ${esc(clean(r.name))}</h2>
     <dl>

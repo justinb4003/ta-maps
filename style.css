@@ -35,7 +35,16 @@ nav#areas button:hover{border-color:var(--c-lcyan); color:var(--c-white)}
 nav#areas button.active{background:var(--c-blue); color:var(--c-white); border-color:var(--c-lblue)}
 
 main{display:flex; gap:0; height:calc(100% - 132px)}
-#map-wrap{flex:1; overflow:auto; padding:1rem}
+#map-wrap{flex:1; position:relative; overflow:hidden}
+#map-scroll{position:absolute; inset:0; overflow:auto; padding:1rem}
+/* per-zone monster legend, pinned in the corner of the map */
+#mlegend{
+  position:absolute; top:.6rem; right:.6rem; max-width:240px; max-height:62%;
+  overflow:auto; background:rgba(0,0,0,.86); border:1px solid var(--c-dgray);
+  padding:.35rem .6rem; font-size:.78rem; line-height:1.4; z-index:4;
+}
+#mlegend b{color:var(--amber)}
+#mlegend .t-monster{display:inline-block; min-width:1.5em; color:var(--c-lred)}
 #map{
   display:inline-grid; gap:0;
   grid-auto-rows:var(--cell); grid-auto-columns:var(--cell);
@@ -47,6 +56,8 @@ main{display:flex; gap:0; height:calc(100% - 132px)}
   cursor:pointer; user-select:none; position:relative; color:var(--c-gray);
 }
 .room:hover, .room.sel{ outline:1px solid var(--amber); color:var(--c-white); z-index:2 }
+.room.sel{ outline:2px solid var(--amber) }
+.room.code2{ font-size:.62rem; letter-spacing:-.05em; font-weight:bold }
 /* room-type tints */
 .t-shop{color:var(--c-yellow)} .t-temple{color:var(--c-lcyan)} .t-guild{color:var(--c-lmag)}
 .t-arena{color:var(--c-lred)} .t-plaza{color:var(--c-lgreen)} .t-monster{color:var(--c-lred)}
@@ -76,6 +87,9 @@ aside#detail{
 #detail .rid{color:var(--c-lgreen)}
 #detail dl{display:grid; grid-template-columns:5.5rem 1fr; gap:.1rem .5rem; margin:.5rem 0}
 #detail dt{color:var(--c-gray)} #detail dd{margin:0; color:var(--fg)}
+#detail a.exlink{color:var(--c-lcyan); text-decoration:none}
+#detail a.exlink:hover{color:var(--c-white); text-decoration:underline}
+#detail .xz{color:var(--c-brown); font-size:.85em}
 #detail .desc{color:var(--c-gray); border-left:2px solid var(--c-dgray); padding-left:.6rem; margin:.6rem 0}
 .placeholder{color:var(--c-dgray)}
 
